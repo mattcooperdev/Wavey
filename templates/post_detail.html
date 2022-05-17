@@ -87,7 +87,7 @@
                 <div class="comments" style="padding: 10px;">
                     <p class="font-weight-bold">
                         {{ comment.name }}
-                        <span class=" text-muted font-weight-normal">
+                        <span class="text-muted font-weight-light">
                             {{ comment.created_on }}
                         </span> wrote:
                     </p>
@@ -102,7 +102,6 @@
                 {% if user.is_authenticated %}
 
                 <h3>Leave a comment:</h3>
-                <p>Posting as: {{ user.username }}</p>
                 <form method="post" style="margin-top: 1.3em;">
                     {{ comment_form | crispy }}
                     {% csrf_token %}

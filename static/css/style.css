@@ -46,6 +46,14 @@ body {
     background-color: #23BBBB;
 }
 
+.edit-flash {
+    position: absolute;
+    bottom: 5%;
+    min-width: 30%;
+    right: -2px;
+    background-color: #23BBBB;
+}
+
 .author {
     color: white;
     margin: 4px;
