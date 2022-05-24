@@ -43,7 +43,7 @@
                     </li>
                     {% else %}
                     <li class="nav-item">
-                        <a class="nav-link" href="{% url 'account_signup' %}">Register</a>
+                        <a class="nav-link" href="{% url 'users_register' %}">Register</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="{% url 'account_login' %}">Login</a>
@@ -60,6 +60,7 @@
     <div class="container">
         <div class="row">
             <div class="div col-md-8 offset-md-2">
+                {% if messages %}
                 {% for message in messages %}
                 <div class="alert {{ message.tags }} alert-dismissible fade show" 
                 id="msg" role="alert">
@@ -68,6 +69,7 @@
                 </button>
                 </div>
                 {% endfor %}
+                {% endif %}
             </div>
         </div>
     </div>
