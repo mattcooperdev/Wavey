@@ -332,6 +332,7 @@ A full detailed breakdown of the testing procedures and methodology can be found
 
 Development bugs: 
 
+25/05/22 = Register form was returning ValuError as didn't return HttpResponse object when invalid data was input to create a User. Fix - In register function the render return was incorrectly indented when the if statement wasn't met. Amending this resolved the issue and user validation was restored.
 
 #### Technologies Used
 
