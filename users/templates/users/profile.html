@@ -2,5 +2,14 @@
 {% load cloudinary %}
 {% load crispy_forms_tags %}
 {% block content %}
-    <h1>{{ user.username }}</h1>
+    <div class="content-section">
+        <div class="media">
+            <img src="{{ user.profile_image }}" alt="" class="rounded-circle account-img">
+            <div class="media-body">
+                <h2 class="account-heading">{{ user.username }} Profile</h2>
+                <p class="text-secondary">{{ user.email }}</p>
+                <p class="text-secondary">{{ Profile.bio }}</p>
+            </div>
+        </div>
+    </div>
 {% endblock %}
