@@ -2,14 +2,20 @@
 {% load cloudinary %}
 {% load crispy_forms_tags %}
 {% block content %}
-    <div class="content-section">
-        <div class="media">
-            <img src="{{ user.profile_image }}" alt="" class="rounded-circle account-img">
-            <div class="media-body">
-                <h2 class="account-heading">{{ user.username }} Profile</h2>
-                <p class="text-secondary">{{ user.email }}</p>
-                <p class="text-secondary">{{ Profile.bio }}</p>
-            </div>
+<div class="content-section">
+    <div class="media">
+        {% if 'placeholder' in user.profile.profile_image.url %}
+        <img src="https://res.cloudinary.com/yescoops/image/upload/v1653922812/Default_Profile_zdn8p1.svg"
+            alt="Default profile image" class="rounded-circle account-img">
+        {% else %}
+        <img src="{{ user.profile.profile_image.url }}" alt="User profile image" 
+            class="rounded-circle account-img">
+        {% endif %}
+        <div class="media-body">
+            <h2 class="account-heading">{{ user.username }} Profile</h2>
+            <p class="text-secondary">{{ user.email }}</p>
+            <p class="text-secondary">{{ user.profile.bio }}</p>
         </div>
     </div>
+</div>
 {% endblock %}
