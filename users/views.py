@@ -1,7 +1,8 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
-from .forms import UserRegisterForm
+from .forms import UserRegisterForm, ProfileForm
+from .models import Profile
 
 
 def register(request):
@@ -30,3 +31,28 @@ def profile(request):
         {
             'profile': profile},
         )
+
+@login_required
+def editProfile(request):
+    profile = get_object_or_404(Profile, user=request.user)
+    if request.user == profile.user:
+        if request.method == 'POST':
+            form = ProfileForm(request.POST, request.FILES, instance=request.user.profile)
+            if form.is_valid():
+                try:
+                    form.save()
+                    username = form.cleaned_data.get('username')
+                    messages.success(request, f'Profile for {username} updated')
+                    return redirect('profile')
+                except:
+                    messages.error(request, 'ERROR: Only image file types are allowed')
+                    context = {'form': form}
+                    return render(request, 'users/edit_profile.html', context)
+        else:
+            form = ProfileForm(instance=request.user.profile)
+    else:
+        id = request.user.id
+        return redirect('profile')
+
+    context = {'form': form}
+    return render(request, 'users/edit_profile.html', context)

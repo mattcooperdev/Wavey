@@ -8,14 +8,14 @@
         <img src="https://res.cloudinary.com/yescoops/image/upload/v1653922812/Default_Profile_zdn8p1.svg"
             alt="Default profile image" class="rounded-circle account-img">
         {% else %}
-        <img src="{{ user.profile.profile_image.url }}" alt="User profile image" 
-            class="rounded-circle account-img">
+        <img src="{{ user.profile.profile_image.url }}" alt="User profile image" class="rounded-circle account-img">
         {% endif %}
         <div class="media-body">
-            <h2 class="account-heading">{{ user.username }} Profile</h2>
+            <h2 class="account-heading">{{ user.profile.username }} Profile</h2>
             <p class="text-secondary">{{ user.email }}</p>
             <p class="text-secondary">{{ user.profile.bio }}</p>
         </div>
+        <a class="btn primary-action" href="{% url 'edit-profile' %}">Edit Profile</a>
     </div>
 </div>
 {% endblock %}
