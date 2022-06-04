@@ -32,6 +32,7 @@ def profile(request):
             'profile': profile},
         )
 
+
 @login_required
 def editProfile(request):
     profile = get_object_or_404(Profile, user=request.user)
@@ -52,7 +53,7 @@ def editProfile(request):
             form = ProfileForm(instance=request.user.profile)
     else:
         id = request.user.id
-        return redirect('profile')
+        return redirect('profile', id)
 
     context = {'form': form}
     return render(request, 'users/edit_profile.html', context)

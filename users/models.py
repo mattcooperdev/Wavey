@@ -14,4 +14,5 @@ class Profile(models.Model):
     social_website = models.URLField(max_length=200, blank=True, null=True)
 
     def __str__(self):
-        return f'{self.user.username} Profile'
+        return f'{self.username} Profile'
+

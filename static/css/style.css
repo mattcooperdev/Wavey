@@ -1,16 +1,28 @@
-body {
-    background-color: #F9FAFC;
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
+body {
+    background-color: #f6f6e9;
+    min-height: 100vh;
+}
+
+
 .brand {
-    font-family: Lato, sans-serif;
     font-size: 1.4rem;
     font-weight: 700;
     color: #4A4A4F;
 }
 
-.red-o {
-    color: #E84610;
+.navbar-logo {
+    max-width: 300px;
+    margin: 0;
+}
+
+.navbar-collapse {
+    flex-grow: 0;
 }
 
 .thin {
@@ -25,13 +37,9 @@ body {
     background-color: #445261;
 }
 
-.main-bg {
-    background-color: #F9FAFC;
-}
-
 .card {
     border: none;
-    background-color: transparent;
+    background-color: #ffffff;
 }
 
 .image-container {
@@ -43,6 +51,7 @@ body {
     bottom: 5%;
     min-width: 30%;
     left: -2px;
+    border-radius: 2%;
     background-color: #23BBBB;
 }
 
@@ -147,4 +156,8 @@ body {
     color: #E84610;
     background: transparent;
     border: none;
+}
+
+.account-img {
+    max-width: 400px;
 }

@@ -24,10 +24,12 @@
 
     <!-- Navigation -->
 
-    <nav class="navbar navbar-expand-lg navbar-light bg-white">
+    <nav class="navbar navbar-expand-lg navbar-light">
         <div class="container-fluid">
-            <a class="navbar-brand" href="{% url 'home' %}"><span class="brand">c<span class="red-o">o</span>de<span
-                        class="thin">|star</span></span></span></a>
+            <a class="" href="{% url 'home' %}">
+                <img src="https://res.cloudinary.com/yescoops/image/upload/v1654330674/Wavey_Logo_2_2_cbi950.svg"
+                    alt="Wavey Logo" class="navbar-logo">
+            </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText"
                 aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -56,9 +58,6 @@
                     </li>
                     {% endif %}
                 </ul>
-                <span class="navbar-text text-muted">
-                    Music is the Answer
-                </span>
             </div>
         </div>
     </nav>
@@ -68,11 +67,10 @@
             <div class="div col-md-8 offset-md-2">
                 {% if messages %}
                 {% for message in messages %}
-                <div class="alert {{ message.tags }} alert-dismissible fade show" 
-                id="msg" role="alert">
-                {{ message | safe }}
-                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close">    
-                </button>
+                <div class="alert {{ message.tags }} alert-dismissible fade show" id="msg" role="alert">
+                    {{ message | safe }}
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close">
+                    </button>
                 </div>
                 {% endfor %}
                 {% endif %}
@@ -96,7 +94,7 @@
     </footer>
     <!--Timeout for alert messages-->
     <script>
-        setTimeout(function() {
+        setTimeout(function () {
             let messages = document.getElementById("msg");
             let alert = new bootstrap.Alert(messages);
             alert.close();
