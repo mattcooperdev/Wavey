@@ -9,14 +9,14 @@
                 <h1 class="post-title">
                     {{ post.title }}
                 </h1>
-                <p class="post-subtitle"> {{ post.author }} | {{ post.created_on }}</p>
+                <p class="post-subtitle"> {{ post.author }} | {{ post.created_on|date:"F d, Y" }}</p>
             </div>
             <div class="d-none d-md-block col-md-6 masthead-image">
                 <!-- The featured image URL goes in the src attribute -->
                 {% if "placeholder" in post.featured_image.url %}
-                <img src="{{ post.featured_image.url }}" width="100%">
-                {% else %}
                 <img src="https://codeinstitute.s3.amazonaws.com/fullstack/blog/default.jpg" width="100%">
+                {% else %}
+                <img src="{{ post.featured_image.url }}" width="100%">
                 {% endif %}
             </div>
         </div>

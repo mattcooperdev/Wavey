@@ -31,7 +31,7 @@ class PostDetail(View):
                 "liked": liked,
                 'comment_form': CommentForm()
             },
-            )
+)
 
     def post(self, request, slug, *args, **kwargs):
         queryset = Post.objects.filter(status=1)
@@ -62,7 +62,7 @@ class PostDetail(View):
                 "liked": liked,
                 "comment_form": CommentForm()
             },
-            )
+)
 
 
 class PostLike(View):
@@ -76,3 +76,13 @@ class PostLike(View):
             post.likes.add(request.user)
 
         return HttpResponseRedirect(reverse('post_detail', args=[slug]))
+
+
+class AddPost(generic.CreateView):
+    model = Post
+    template_name = "add_post.html"
+    fields = ['title', 'featured_image', 'content']
+
+    def form_valid(self, form):
+        form.instance.author = self.request.user
+        return super().form_valid(form)
