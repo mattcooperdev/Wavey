@@ -1,7 +1,7 @@
 from django.shortcuts import render, get_object_or_404, reverse
 from django.views import generic, View
 from .models import Post
-from .forms import CommentForm
+from .forms import CommentForm, PostForm
 from django.http import HttpResponseRedirect
 
 
@@ -82,6 +82,7 @@ class AddPost(generic.CreateView):
     model = Post
     template_name = "add_post.html"
     fields = ['title', 'featured_image', 'content']
+    # form = PostForm(request.POST or None, request.FILES or None)
 
     def form_valid(self, form):
         form.instance.author = self.request.user

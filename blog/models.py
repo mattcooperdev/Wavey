@@ -13,14 +13,14 @@ class Post(models.Model):
     title = models.CharField(max_length=200, unique=True)
     slug = models.SlugField(max_length=200, unique=True)
     author = models.ForeignKey(
-        User, on_delete=models.CASCADE, related_name="blog_posts"
+        User, on_delete=models.CASCADE, related_name='blog_posts'
     )
     updated_on = models.DateTimeField(auto_now=True)
     content = models.TextField()
     featured_image = CloudinaryField('image', default='placeholder')
     excerpt = models.TextField(blank=True)
     created_on = models.DateTimeField(auto_now_add=True)
-    status = models.IntegerField(choices=STATUS, default=0)
+    status = models.IntegerField(choices=STATUS, default=1)
     likes = models.ManyToManyField(User, related_name='blog_likes', blank=True)
 
     class Meta:
@@ -33,7 +33,13 @@ class Post(models.Model):
         return self.likes.count()
 
     def get_absolute_url(self):
-        return reverse('post_detail', kwargs={'pk': self.pk})
+        return reverse('post_detail', kwargs={'slug': self.slug})
+
+    def save(self, *args, **kwargs):
+        if not self.slug:
+            self.slug = self.title.strip().replace(' ', '-')
+        super().save(*args, **kwargs)
+
 
 class Comment(models.Model):
     '''
