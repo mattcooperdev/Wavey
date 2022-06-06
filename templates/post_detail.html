@@ -22,20 +22,6 @@
         </div>
     </div>
 </div>
-<div class="container">
-    <div class="row">
-        <div class="div col-md-8 offset-md-2">
-            {% for message in messages %}
-            <div class="alert {{ message.tags }} alert-success fade show" 
-            id="msg" role="alert">
-            {{ message.success | safe }}
-            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close">    
-            </button>
-            </div>
-            {% endfor %}
-        </div>
-    </div>
-</div>
 
 <div class="container">
     <div class="row">
@@ -49,11 +35,11 @@
                             <form action="{% url 'post_like' post.slug%}" method="POST" class="d-inline">
                                 {% csrf_token %}
                                 {% if liked %}
-                                <button class="btn-like" type="submit" name="blogpost_id" value="{{post.slug}}"><i 
+                                <button class="btn-like" type="submit" name="blogpost_id" value="{{post.slug}}"><i
                                         class="fas fa-heart"></i></button>
                                 {% else %}
-                                <button class="btn-like" type="submit" name="blogpost_id" value="{{post.slug}}"><i 
-                                    class="far fa-heart"></i></button>
+                                <button class="btn-like" type="submit" name="blogpost_id" value="{{post.slug}}"><i
+                                        class="far fa-heart"></i></button>
                                 {% endif %}
                             </form>
                             {% else %}

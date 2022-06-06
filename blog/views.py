@@ -2,6 +2,7 @@ from django.shortcuts import render, get_object_or_404, reverse
 from django.views import generic, View
 from django.contrib import messages
 from django.contrib.auth.mixins import LoginRequiredMixin
+from django.contrib.messages.views import SuccessMessageMixin
 from django.http import HttpResponseRedirect
 from .models import Post
 from .forms import CommentForm, PostForm
@@ -80,10 +81,11 @@ class PostLike(View):
         return HttpResponseRedirect(reverse('post_detail', args=[slug]))
 
 
-class AddPost(LoginRequiredMixin, generic.CreateView):
+class AddPost(LoginRequiredMixin, SuccessMessageMixin, generic.CreateView):
     model = Post
     template_name = "add_post.html"
     fields = ['title', 'excerpt', 'featured_image', 'content']
+    success_message = "Post created successfully!"
     # form = PostForm(request.POST or None, request.FILES or None)
 
     def form_valid(self, form):
@@ -91,10 +93,11 @@ class AddPost(LoginRequiredMixin, generic.CreateView):
         return super().form_valid(form)
 
 
-class UpdatePost(LoginRequiredMixin, generic.UpdateView):
+class UpdatePost(LoginRequiredMixin, SuccessMessageMixin, generic.UpdateView):
     model = Post
     template_name = "update_post.html"
     fields = ['title', 'excerpt', 'featured_image', 'content']
+    success_message = "Post updated successfully!"
     # form = PostForm(request.POST or None, request.FILES or None)
 
     def form_valid(self, form):

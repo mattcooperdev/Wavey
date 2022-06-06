@@ -14,25 +14,11 @@
             <div class="d-none d-md-block col-md-6 masthead-image">
                 <!-- The featured image URL goes in the src attribute -->
                 {% if "placeholder" in post.featured_image.url %}
-                <img src="{{ post.featured_image.url }}" width="100%">
-                {% else %}
                 <img src="https://codeinstitute.s3.amazonaws.com/fullstack/blog/default.jpg" width="100%">
+                {% else %}
+                <img src="{{ post.featured_image.url }}" width="100%">
                 {% endif %}
             </div>
-        </div>
-    </div>
-</div>
-<div class="container">
-    <div class="row">
-        <div class="div col-md-8 offset-md-2">
-            {% for message in messages %}
-            <div class="alert {{ message.tags }} alert-success fade show" 
-            id="msg" role="alert">
-            {{ message.success | safe }}
-            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close">    
-            </button>
-            </div>
-            {% endfor %}
         </div>
     </div>
 </div>

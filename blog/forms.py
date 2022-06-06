@@ -13,6 +13,7 @@ class PostForm(forms.ModelForm):
         model = Post
         fields = [
             'title',
+            'excerpt',
             'featured_image',
             'content'
         ]
