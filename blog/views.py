@@ -1,8 +1,10 @@
 from django.shortcuts import render, get_object_or_404, reverse
 from django.views import generic, View
+from django.contrib import messages
+from django.contrib.auth.mixins import LoginRequiredMixin
+from django.http import HttpResponseRedirect
 from .models import Post
 from .forms import CommentForm, PostForm
-from django.http import HttpResponseRedirect
 
 
 class PostList(generic.ListView):
@@ -31,7 +33,7 @@ class PostDetail(View):
                 "liked": liked,
                 'comment_form': CommentForm()
             },
-)
+            )
 
     def post(self, request, slug, *args, **kwargs):
         queryset = Post.objects.filter(status=1)
@@ -62,7 +64,7 @@ class PostDetail(View):
                 "liked": liked,
                 "comment_form": CommentForm()
             },
-)
+            )
 
 
 class PostLike(View):
@@ -78,10 +80,21 @@ class PostLike(View):
         return HttpResponseRedirect(reverse('post_detail', args=[slug]))
 
 
-class AddPost(generic.CreateView):
+class AddPost(LoginRequiredMixin, generic.CreateView):
     model = Post
     template_name = "add_post.html"
-    fields = ['title', 'featured_image', 'content']
+    fields = ['title', 'excerpt', 'featured_image', 'content']
+    # form = PostForm(request.POST or None, request.FILES or None)
+
+    def form_valid(self, form):
+        form.instance.author = self.request.user
+        return super().form_valid(form)
+
+
+class UpdatePost(LoginRequiredMixin, generic.UpdateView):
+    model = Post
+    template_name = "update_post.html"
+    fields = ['title', 'excerpt', 'featured_image', 'content']
     # form = PostForm(request.POST or None, request.FILES or None)
 
     def form_valid(self, form):
