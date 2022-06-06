@@ -43,7 +43,7 @@ def editProfile(request):
                 try:
                     form.save()
                     username = form.cleaned_data.get('username')
-                    messages.success(request, f'Profile for {username} updated')
+                    messages.success(request, f'Profile for {profile.username} updated')
                     return redirect('profile')
                 except:
                     messages.error(request, 'ERROR: Only image file types are allowed')

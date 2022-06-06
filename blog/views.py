@@ -4,8 +4,10 @@ from django.contrib import messages
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib.messages.views import SuccessMessageMixin
 from django.http import HttpResponseRedirect
+from cloudinary.models import CloudinaryField
 from .models import Post
 from .forms import CommentForm, PostForm
+
 
 
 class PostList(generic.ListView):
