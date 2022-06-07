@@ -1,13 +1,11 @@
 from django.shortcuts import render, get_object_or_404, reverse
 from django.views import generic, View
 from django.contrib import messages
-from django.contrib.auth.mixins import LoginRequiredMixin
+from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
 from django.contrib.messages.views import SuccessMessageMixin
 from django.http import HttpResponseRedirect
-from cloudinary.models import CloudinaryField
 from .models import Post
 from .forms import CommentForm, PostForm
-
 
 
 class PostList(generic.ListView):
@@ -95,7 +93,7 @@ class AddPost(LoginRequiredMixin, SuccessMessageMixin, generic.CreateView):
         return super().form_valid(form)
 
 
-class UpdatePost(LoginRequiredMixin, SuccessMessageMixin, generic.UpdateView):
+class UpdatePost(LoginRequiredMixin, SuccessMessageMixin, UserPassesTestMixin, generic.UpdateView):
     model = Post
     template_name = "update_post.html"
     fields = ['title', 'excerpt', 'featured_image', 'content']
@@ -105,3 +103,22 @@ class UpdatePost(LoginRequiredMixin, SuccessMessageMixin, generic.UpdateView):
     def form_valid(self, form):
         form.instance.author = self.request.user
         return super().form_valid(form)
+
+    # function will raise 403 if user tries to update post and is not author
+    def test_func(self):
+        post = self.get_object()
+        if self.request.user == post.author:
+            return True
+        return False
+
+class DeletePost(LoginRequiredMixin, SuccessMessageMixin, UserPassesTestMixin, generic.DeleteView):
+    model = Post
+    template_name = "delete_post.html"
+    success_url = '/'
+    success_message = "Post deleted."
+
+    def test_func(self):
+        post = self.get_object()
+        if self.request.user == post.author:
+            return True
+        return False

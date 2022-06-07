@@ -15,13 +15,19 @@
                             <div class="image-container">
                                 {% if "placeholder" in post.featured_image.url %}
                                 <img class="card-img-top card-img"
-                                    src="https://codeinstitute.s3.amazonaws.com/fullstack/blog/default.jpg">
+                                    src="https://res.cloudinary.com/yescoops/image/upload/v1654601674/Music_Production_xl1b0i.jpg">
                                 {% else %}
                                 <img class="card-img-top card-img" src=" {{ post.featured_image.url }}">
                                 {% endif %}
+                                {% if user.is_authenticated %}
+                                <div class="image-flash">
+                                    <a class="author" href="{% url 'profile' %}">{{ post.author }}</a>
+                                </div>
+                                {% else %}
                                 <div class="image-flash">
                                     <p class="author">{{ post.author }}</p>
                                 </div>
+                                {% endif %}
                             </div>
                             <a href="{% url 'post_detail' post.slug %}" class="post-link">
                                 <h2 class="card-title">{{ post.title }}</h2>
