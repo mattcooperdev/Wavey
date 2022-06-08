@@ -16,15 +16,35 @@ body {
 p {
     font-family: Spline Sans Mono, sans-serif;
 }
-.card-img {
-    /* width: 100%; */
-    height: 300px;
+
+/* NavBar */
+
+.nav-item{
+    font-family: Spline Sans Mono, sans-serif;
+    font-size: 20px;
+}
+
+.nav-link {
     position: relative;
 }
 
-.brand {
-    font-size: 1.4rem;
-    color: #4A4A4F;
+.nav-link:before {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 2px;
+    top: calc(50%);
+    /* left: 0; */
+    right: 0;
+    background-color: #e70c0c;
+    visibility: hidden;
+    transform: scaleX(0);
+    transition: all 0.3s ease-in-out;
+}
+
+.nav-link:hover:before {
+    visibility: visible;
+    transform: scaleX(1);
 }
 
 .navbar-logo {
@@ -36,26 +56,21 @@ p {
     flex-grow: 0;
 }
 
-.thin {
-    font-weight: 300;
-}
+/*Post Card */
 
-.light-bg {
-    background-color: #fff;
-}
-
-.dark-bg {
-    background-color: #e70c0c;
+.card-img {
+    height: 300px;
+    position: relative;
 }
 
 .card {
     border: none;
     background-color: #ffffff;
+    transition: 0.3s ease-out;
 }
 
 .card:hover {
     box-shadow: 5px 10px 10px #e98c98;
-    transition-duration: 0.3s;
     transform: scale(1.01);
 }
 
@@ -85,6 +100,24 @@ p {
     margin: 4px;
     text-transform: uppercase;
 }
+
+.brand {
+    font-size: 1.4rem;
+    color: #4A4A4F;
+}
+
+.thin {
+    font-weight: 300;
+}
+
+.light-bg {
+    background-color: #fff;
+}
+
+.dark-bg {
+    background-color: #e70c0c;
+}
+
 
 .masthead {
     margin-top: 10px;
