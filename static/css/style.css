@@ -61,6 +61,7 @@ p {
 .card-img {
     height: 300px;
     position: relative;
+    overflow: hidden;
 }
 
 .card {
@@ -208,6 +209,6 @@ p {
     border: none;
 }
 
-.account-img {
+/* .account-img {
     max-width: 400px;
-}
+} */

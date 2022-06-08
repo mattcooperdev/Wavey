@@ -5,7 +5,7 @@ from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
 from django.contrib.messages.views import SuccessMessageMixin
 from django.http import HttpResponseRedirect
 from .models import Post
-from .forms import CommentForm, PostForm
+from .forms import CommentForm
 
 
 class PostList(generic.ListView):
@@ -84,9 +84,8 @@ class PostLike(View):
 class AddPost(LoginRequiredMixin, SuccessMessageMixin, generic.CreateView):
     model = Post
     template_name = "add_post.html"
-    fields = ['title', 'excerpt', 'featured_image', 'content']
+    fields = ['title', 'featured_image', 'content']
     success_message = "Post created successfully!"
-    # form = PostForm(request.POST or None, request.FILES or None)
 
     def form_valid(self, form):
         form.instance.author = self.request.user
@@ -96,7 +95,7 @@ class AddPost(LoginRequiredMixin, SuccessMessageMixin, generic.CreateView):
 class UpdatePost(LoginRequiredMixin, SuccessMessageMixin, UserPassesTestMixin, generic.UpdateView):
     model = Post
     template_name = "update_post.html"
-    fields = ['title', 'excerpt', 'featured_image', 'content']
+    fields = ['title', 'featured_image', 'content']
     success_message = "Post updated successfully!"
     # form = PostForm(request.POST or None, request.FILES or None)
 
