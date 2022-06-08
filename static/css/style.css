@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400&family=Spline+Sans+Mono:wght@300&display=swap');
 
 * {
     margin: 0;
@@ -8,10 +8,14 @@
 
 body {
     font-family: Quicksand, sans-serif;
+    /* background-image: url('https://res.cloudinary.com/yescoops/image/upload/v1654601844/Wavey_Background_-_large_odnita.png'); */
     background-color: #f6f6e9;
     min-height: 100vh;
 }
 
+p {
+    font-family: Spline Sans Mono, sans-serif;
+}
 .card-img {
     /* width: 100%; */
     height: 300px;
@@ -41,12 +45,18 @@ body {
 }
 
 .dark-bg {
-    background-color: #445261;
+    background-color: #e70c0c;
 }
 
 .card {
     border: none;
     background-color: #ffffff;
+}
+
+.card:hover {
+    box-shadow: 5px 10px 10px #e98c98;
+    transition-duration: 0.3s;
+    transform: scale(1.01);
 }
 
 .image-container {
