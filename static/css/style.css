@@ -247,3 +247,7 @@ a:hover {
 .footer p {
     color: #445261;
 }
+
+.footer i {
+    font-size: 1.5rem;
+}
