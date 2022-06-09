@@ -17,6 +17,15 @@ p {
     font-family: Spline Sans Mono, sans-serif;
 }
 
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+a:hover {
+    color: #e70c0c;
+}
+
 /* NavBar */
 
 .nav-item{
@@ -115,11 +124,6 @@ p {
 .light-bg {
     background-color: #fff;
 }
-
-.dark-bg {
-    background-color: #e70c0c;
-}
-
 
 .masthead {
     margin-top: 10px;
@@ -233,4 +237,13 @@ p {
     z-index: 100;
     color: white;
     background-color: rgba(0, 0, 0, 0.2);
+}
+
+.carousel-image {
+    position: center;
+    object-fit: cover;
+}
+
+.footer p {
+    color: #445261;
 }
