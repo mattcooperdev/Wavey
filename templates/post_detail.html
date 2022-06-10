@@ -11,13 +11,14 @@
                 </h1>
                 <p class="post-subtitle"> {{ post.author }} | {{ post.created_on|date:"F d, Y" }}</p>
                 {% if post.author == user %}
-                    <a class="post-subtitle" href="{% url 'update_post' post.slug %}">Update</a>
-                    <a class="post-subtitle" href="{% url 'delete_post' post.slug %}">Delete</a>
+                <a class="post-subtitle" href="{% url 'update_post' post.slug %}">Update</a>
+                <a class="post-subtitle" href="{% url 'delete_post' post.slug %}">Delete</a>
                 {% endif %}
             </div>
             <div class="d-none d-md-block col-md-6 masthead-image">
                 {% if "placeholder" in post.featured_image.url %}
-                <img src="https://res.cloudinary.com/yescoops/image/upload/v1654601674/Music_Production_xl1b0i.jpg" width="100%">
+                <img src="https://res.cloudinary.com/yescoops/image/upload/v1654601674/Music_Production_xl1b0i.jpg"
+                    width="100%">
                 {% else %}
                 <img src="{{ post.featured_image.url }}" width="100%">
                 {% endif %}
@@ -87,19 +88,25 @@
             </div>
         </div>
         <div class="col-md-4 card-detail mb-4  mt-3 ">
+            {% if user.is_authenticated %}
             <div class="card-body">
-                {% if user.is_authenticated %}
-
                 <h3>Leave a comment:</h3>
                 <form method="post" style="margin-top: 1.3em;">
                     {{ comment_form | crispy }}
                     {% csrf_token %}
                     <button type="submit" class="btn btn-signup btn-lg">Submit</button>
                 </form>
-
-                {% endif %}
-
+            {% else %}
+                <div class="card-body-unauth">
+                    <p>
+                        <a href="{% url 'account_login' %}">Login</a>
+                        or
+                        <a href="{% url 'register' %}">register</a>
+                        to leave a comment
+                    </p>
+                </div>
             </div>
+            {% endif %}
         </div>
     </div>
 </div>

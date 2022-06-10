@@ -2,7 +2,7 @@
 
 :root {
     --body:#f6f6e9;
-    --green: #61a6ab;
+    --green: #468186;
     --orange: #eb5b2d;
     --dark: #291b25;
     --grey: #e6e7e8;
@@ -73,6 +73,13 @@ a:hover {
 .navbar-collapse {
     flex-grow: 0;
 }
+
+.navbar-toggler {
+    font-size: 1.5rem;
+    line-height: 2;
+    border: rgba(0, 0, 0, 0);
+}
+
 /*Carousel */
 
 .carousel, 
@@ -125,6 +132,18 @@ a:hover {
     background-color: var(--white);
 }
 
+.card-body-unauth {
+    margin: 1rem;
+    background-color: var(--dark);
+    opacity: 0.4;
+}
+
+.card-body-unauth p {
+    font-size: 1.25rem;
+    color: var(--white);
+    margin-left: 1rem;
+}
+
 .image-container {
     position: relative;
 }
@@ -173,7 +192,7 @@ a:hover {
 
 .masthead-text {
     background-color: var(--green);
-    color: var(--grey);
+    color: var(--white);
     position: relative;
 }
 
@@ -214,17 +233,6 @@ a:hover {
 .post-subtitle {
     margin-left: 5%;
     color: var(--grey);
-}
-
-.btn-signup {
-    background-color: var(--green);
-    color: var(--white);
-}
-
-.btn-signup:hover,
-.btn-signup:active {
-    background-color: var(--white);
-    color: var(--green);
 }
 
 .link {
