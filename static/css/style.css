@@ -1,5 +1,14 @@
 @import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400&family=Spline+Sans+Mono:wght@300&display=swap');
 
+:root {
+    --body:#f6f6e9;
+    --green: #61a6ab;
+    --orange: #eb5b2d;
+    --dark: #291b25;
+    --grey: #e6e7e8;
+    --white: #ffffff;
+}
+
 * {
     margin: 0;
     padding: 0;
@@ -9,7 +18,7 @@
 body {
     font-family: Quicksand, sans-serif;
     /* background-image: url('https://res.cloudinary.com/yescoops/image/upload/v1654601844/Wavey_Background_-_large_odnita.png'); */
-    background-color: #f6f6e9;
+    background-color: var(--body);
     min-height: 100vh;
 }
 
@@ -23,7 +32,7 @@ a {
 }
 
 a:hover {
-    color: #e70c0c;
+    color: var(--orange);
 }
 
 /* NavBar */
@@ -45,7 +54,7 @@ a:hover {
     top: calc(50%);
     /* left: 0; */
     right: 0;
-    background-color: #e70c0c;
+    background-color: var(--orange);
     visibility: hidden;
     transform: scaleX(0);
     transition: all 0.3s ease-in-out;
@@ -57,167 +66,14 @@ a:hover {
 }
 
 .navbar-logo {
-    max-width: 300px;
+    max-width: 350px;
     margin: 0;
 }
 
 .navbar-collapse {
     flex-grow: 0;
 }
-
-/*Post Card */
-
-.card-img {
-    height: 300px;
-    position: relative;
-    overflow: hidden;
-    object-fit: cover;
-}
-
-.card {
-    border: none;
-    background-color: #ffffff;
-    transition: 0.3s ease-out;
-}
-
-.card:hover {
-    box-shadow: 5px 10px 10px #e98c98;
-    transform: scale(1.01);
-}
-
-.image-container {
-    position: relative;
-}
-
-.image-flash {
-    position: absolute;
-    bottom: 5%;
-    min-width: 30%;
-    left: -2px;
-    border-radius: 2%;
-    background-color: #23BBBB;
-}
-
-.edit-flash {
-    position: absolute;
-    bottom: 5%;
-    min-width: 30%;
-    right: -2px;
-    background-color: #23BBBB;
-}
-
-.author {
-    color: white;
-    margin: 4px;
-    text-transform: uppercase;
-}
-
-.brand {
-    font-size: 1.4rem;
-    color: #4A4A4F;
-}
-
-.thin {
-    font-weight: 300;
-}
-
-.light-bg {
-    background-color: #fff;
-}
-
-.masthead {
-    margin-top: 10px;
-    overflow: hidden;
-    position: relative;
-    display: inline-block;
-    height: 33vh;
-    width: 100%;
-}
-
-.masthead-text {
-    background-color: #445261;
-    color: white;
-    position: relative;
-}
-
-.masthead-image {
-    position: relative;
-    overflow: hidden;
-}
-
-.masthead-image:after {
-    content: "";
-    position: absolute;
-    top: 0;
-    right: 90%;
-    height: 100%;
-    width: 150%;
-    background: #445261;
-    -webkit-transform: skew(15deg);
-    -moz-transform: skew(15deg);
-    transform: skew(15deg);
-    z-index: 100;
-}
-
-.post-link {
-    text-decoration: none;
-    color: #445261;
-}
-
-.post-link:hover,
-.page-link {
-    color: #E84610;
-}
-
-.post-title {
-    margin-top: 20%;
-    margin-left: 5%;
-}
-
-.post-subtitle {
-    margin-left: 5%;
-    color: lightgray;
-}
-
-.btn-signup {
-    background-color: #23BBBB;
-    color: #fff;
-}
-
-.btn-signup:hover,
-.btn-signup:active {
-    background-color: #fff;
-    color: #23BBBB;
-}
-
-.link {
-    color: #23BBBB;
-    text-decoration: none;
-}
-
-.link:hover,
-.link:active {
-    color: #445261;
-    text-decoration: underline;
-}
-
-.btn-like {
-    color: #E84610;
-    border: none;
-    background: transparent;
-}
-
-.btn-like:hover,
-.btn-like:active {
-    color: #E84610;
-    background: transparent;
-    border: none;
-}
-
-.account-img {
-    max-width: 400px;
-    object-fit: cover;
-}
+/*Carousel */
 
 .carousel, 
 .carousel-item {
@@ -235,7 +91,7 @@ a:hover {
     padding-left: 2rem;
     width: 100%;
     z-index: 100;
-    color: white;
+    color: var(--white);
     background-color: rgba(0, 0, 0, 0.2);
 }
 
@@ -244,8 +100,164 @@ a:hover {
     object-fit: cover;
 }
 
+/*Post Card */
+
+.card-img {
+    height: 300px;
+    position: relative;
+    overflow: hidden;
+    object-fit: cover;
+}
+
+.card {
+    border: none;
+    background-color: var(--white);
+    transition: 0.3s ease-out;
+}
+
+.card:hover {
+    box-shadow: 5px 10px 10px var(--green);
+    transform: scale(1.01);
+}
+
+.card-detail {
+    border: none;
+    background-color: var(--white);
+}
+
+.image-container {
+    position: relative;
+}
+
+.image-flash {
+    position: absolute;
+    bottom: 5%;
+    min-width: 30%;
+    left: -2px;
+    border-radius: 2%;
+    background-color: var(--green);
+}
+
+.edit-flash {
+    position: absolute;
+    bottom: 5%;
+    min-width: 30%;
+    right: -2px;
+    background-color: var(--green);
+}
+
+.author {
+    color: var(--white);
+    margin: 4px;
+    text-transform: uppercase;
+}
+
+.brand {
+    font-size: 1.4rem;
+    color: #4A4A4F;
+}
+
+.thin {
+    font-weight: 300;
+}
+
+
+.masthead {
+    margin-top: 10px;
+    overflow: hidden;
+    position: relative;
+    display: inline-block;
+    height: 33vh;
+    width: 100%;
+}
+
+.masthead-text {
+    background-color: var(--green);
+    color: var(--grey);
+    position: relative;
+}
+
+.masthead-image {
+    position: relative;
+    overflow: hidden;
+}
+
+.masthead-image:after {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 90%;
+    height: 100%;
+    width: 150%;
+    background: var(--green);
+    -webkit-transform: skew(15deg);
+    -moz-transform: skew(15deg);
+    transform: skew(15deg);
+    z-index: 100;
+}
+
+.post-link {
+    text-decoration: none;
+    color: var(--green);
+}
+
+.post-link:hover,
+.page-link {
+    color: var(--orange);
+}
+
+.post-title {
+    margin-top: 20%;
+    margin-left: 5%;
+}
+
+.post-subtitle {
+    margin-left: 5%;
+    color: var(--grey);
+}
+
+.btn-signup {
+    background-color: var(--green);
+    color: var(--white);
+}
+
+.btn-signup:hover,
+.btn-signup:active {
+    background-color: var(--white);
+    color: var(--green);
+}
+
+.link {
+    color: var(--green);
+    text-decoration: none;
+}
+
+.link:hover,
+.link:active {
+    color: var(--green);
+    text-decoration: underline;
+}
+
+.btn-like {
+    color: var(--orange);
+    border: none;
+    background: transparent;
+}
+
+.btn-like:hover,
+.btn-like:active {
+    color: var(--orange);
+    background: transparent;
+    border: none;
+}
+
+.account-img {
+    max-width: 400px;
+    object-fit: cover;
+}
+
 .footer p {
-    color: #445261;
+    color: var(--dark);
 }
 
 .footer i {

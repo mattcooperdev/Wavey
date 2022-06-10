@@ -28,7 +28,7 @@
 
 <div class="container">
     <div class="row">
-        <div class="col card mb-4  mt-3 left  top">
+        <div class="col card-detail mb-4  mt-3 left  top">
             <div class="card-body">
                 <p class="card-text ">{{ post.content | safe }}</p>
                 <div class="row">
@@ -68,7 +68,7 @@
         </div>
     </div>
     <div class="row">
-        <div class="col-md-8 card mb-4  mt-3 ">
+        <div class="col-md-8 card-detail mb-4  mt-3 ">
             <h3>Comments:</h3>
             <div class="card-body">
                 <!-- for loop iterates through all comments -->
@@ -86,7 +86,7 @@
                 {% endfor %}
             </div>
         </div>
-        <div class="col-md-4 card mb-4  mt-3 ">
+        <div class="col-md-4 card-detail mb-4  mt-3 ">
             <div class="card-body">
                 {% if user.is_authenticated %}
 
