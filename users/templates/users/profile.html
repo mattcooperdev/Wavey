@@ -2,9 +2,9 @@
 {% load cloudinary %}
 {% load crispy_forms_tags %}
 {% block content %}
-<div class="container">
-    <div class="row">
-        <div class="media">
+<div class="container mt-4 mb-4 p-3 d-flex justify-content-center">
+    <div class="p-4">
+        <div class="image d-flex flex-column justify-content-center align-items-center">
             {% if 'placeholder' in user.profile.profile_image.url %}
             <img src="https://res.cloudinary.com/yescoops/image/upload/v1653922812/Default_Profile_zdn8p1.svg"
                 alt="Default profile image" class="rounded-circle account-img">
@@ -12,14 +12,35 @@
             <img src="{{ user.profile.profile_image.url }}" alt="User profile image" class="rounded-circle account-img">
             {% endif %}
             <div class="media-body">
-                <h2 class="account-heading">{{ user.username }} Profile</h2>
-                <p class="text-secondary">{{ user.email }}</p>
-                <p class="text-secondary">{{ user.profile.bio }}</p>
-                <p class="text-secondary">{{ user.profile.location }}</p>
-                <p class="text-secondary">{{ user.profile.social_youtube }}</p>
-                <p class="text-secondary">{{ user.profile.social_website }}</p>
+                <h2 class="account-heading">{{ user.username }}'s Profile</h2>
+                <p class="text-secondary">Email: {{ user.email }}</p>
+                {% if user.profile.bio %}
+                <p class="text-secondary">Bio: {{ user.profile.bio }}</p>
+                {% else %}
+                <p class="text-secondary">Bio: No Bio shared</p>
+                {% endif %}
+                {% if user.profile.location %}
+                <p class="text-secondary">Location: {{ user.profile.location }}</p>
+                {% else %}
+                <p class="text-secondary">Location: Not telling you that</p>
+                {% endif %}
+                {% if user.profile.social_youtube %}
+                <p class="text-secondary">YouTube: {{ user.profile.social_youtube }}</p>
+                {% else %}
+                <p class="text-secondary">YouTube: No channel</p>
+                {% endif %}
+                {% if user.profile.social_website %}
+                <p class="text-secondary">Website: {{ user.profile.social_website }}</p>
+                {% else %}
+                <p class="text-secondary">Website: Nothing to see here</p>
+                {% endif %}
             </div>
-            <a class="btn primary-action" href="{% url 'edit-profile' %}">Edit Profile</a>
+            {% if request.username == profile.username %}
+            <div class="column">
+                <a class="btn btn-info" href="{% url 'edit-profile' %}">Edit Profile</a>
+                <a class="btn btn-danger" href="{% url 'edit-profile' %}">Delete Profile</a>
+            </div>
+            {% endif %}
         </div>
     </div>
 </div>

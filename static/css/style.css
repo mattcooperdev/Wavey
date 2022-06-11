@@ -17,7 +17,6 @@
 
 body {
     font-family: Quicksand, sans-serif;
-    /* background-image: url('https://res.cloudinary.com/yescoops/image/upload/v1654601844/Wavey_Background_-_large_odnita.png'); */
     background-color: var(--body);
     min-height: 100vh;
 }
@@ -67,7 +66,7 @@ a:hover {
 
 .navbar-logo {
     max-width: 350px;
-    margin: 0;
+    margin-left: 1rem;
 }
 
 .navbar-collapse {
@@ -260,7 +259,7 @@ a:hover {
 }
 
 .account-img {
-    max-width: 400px;
+    max-width: 200px;
     object-fit: cover;
 }
 

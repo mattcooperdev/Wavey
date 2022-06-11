@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
-from .forms import UserRegisterForm, ProfileForm
+from .forms import UserRegisterForm, UserUpdateForm, ProfileForm
 from .models import Profile
 
 
@@ -11,7 +11,9 @@ def register(request):
         if form.is_valid():
             form.save()
             username = form.cleaned_data.get('username')
-            messages.success(request, f'Account for {username} has been created! You can now login.')
+            messages.success(request,
+                             f'Account for {username} has been created! \
+                                  You can now login.')
             return redirect('account_login')
     else:
         form = UserRegisterForm()
@@ -35,25 +37,21 @@ def profile(request):
 
 @login_required
 def editProfile(request):
-    profile = get_object_or_404(Profile, user=request.user)
-    if request.user == profile.user:
-        if request.method == 'POST':
-            form = ProfileForm(request.POST, request.FILES, instance=request.user.profile)
-            if form.is_valid():
-                try:
-                    form.save()
-                    username = form.cleaned_data.get('username')
-                    messages.success(request, f'Profile for {profile.username} updated')
-                    return redirect('profile')
-                except:
-                    messages.error(request, 'ERROR: Only image file types are allowed')
-                    context = {'form': form}
-                    return render(request, 'users/edit_profile.html', context)
-        else:
-            form = ProfileForm(instance=request.user.profile)
+    if request.method == 'POST':
+        user_form = UserUpdateForm(request.POST, instance=request.user)
+        profile_form = ProfileForm(request.POST, request.FILES,
+                                   instance=request.user.profile)
+        if user_form.is_valid() and profile_form.is_valid():
+            user_form.save()
+            profile_form.save()
+            messages.success(request, 'Profile updated')
+            return redirect('profile')
     else:
-        id = request.user.id
-        return redirect('profile', id)
-
-    context = {'form': form}
+        user_form = UserUpdateForm(request.POST, instance=request.user)
+        profile_form = ProfileForm(request.POST, request.FILES,
+                                   instance=request.user.profile)
+        context = {
+            'user_form': user_form,
+            'profile_form': profile_form
+        }
     return render(request, 'users/edit_profile.html', context)
