@@ -2,7 +2,7 @@
 # Wavey 
 
 ## Introduction
-Wavey Blog is a website built in Django using Python, JavaScript, CSS and HTML. It enables users to create and share music production techniques through tutorial -style posts with other users from around the world. It is targetted towards users who enjoy making music and would like to share their techniques with others. Once users have registered and created a profile, they have the ability to create posts, and like and comment on others. They can upload images and videos for use on their posts or on their profile, link their personal youtube accounts and websites, and like and favorite other user posts.
+Wavey Blog is a website built in Django using Python, JavaScript, CSS and HTML. It enables users to create and share music production techniques through tutorial-style posts with other users from around the world. It is targetted towards users who enjoy making electronic music and would like to share their knowledge with others. Once users have registered and created a profile, they have the ability to create posts, as well as like and comment on others. They can upload images and videos for use on their posts, link their personal youtube accounts and other social websites.
 
 The site provides role based permissions for users to interact with a central dataset. It includes user authentication, email validation, and Full CRUD functionality for Posts and User Profiles.
 
@@ -34,17 +34,17 @@ Please note: To open any links in this document in a new browser tab, please pre
 
 ## UX
 ### The Strategy Plane
-*  Wavey is intended to be a friendly community site for users to create and share their own music production techniques with others. Users will also be able to find posts created by other users from around the world. The graphical elements and overall design of the site provide the user with a concise and expansive environment.
+*  Wavey is intended to be a friendly community site for users to create and share their own music production techniques with others. Users will also be able to find posts created by other users from around the world. The graphical elements and overall design of the site provide a clear and concise environment for them to focus their attention on learning.
 
 ##### The Sites Ideal User
-* Music producer looking to share their favourite tips and tricks with others
+* Music producer of any level looking to share their favourite tips, tricks and techniques with others
 * Someone looking to expand their production knowledge
-* Someone looking for inspiration for new things to try
-* Someone looking build their social media following
+* Someone looking for inspiration for new things to try when creating
+* Someone looking to build their social media following
 
 #### Site Goals
 
-* To provide users with a place to find techniques
+* To provide users with a place to become inspired
 * To provide users with a place to share their own tips and ideas
 * To provide users with a place to discover new techniques and be inspired
 
@@ -92,15 +92,13 @@ These are the user stories that were completed within the projects first release
 **Features planned:**
 * User Profile - Create, Read, Update and Delete
 * Posts - Users can create, read, update and delete their own posts
-* Other Users posts - Users can read, like, save other Users' posts
+* Other Users posts - Users can read, like, and comment on other Users' posts
 * Profiles - Users can view other user profiles
 * Users can login to their account, change their password or their email
 * Users can reset their password if they forget it
 * Users can logout of their account
-* Users need to be registered and logged in to access post creation, like, save functionality and access other users profiles.
+* Users need to be registered and logged in to create and like posts and access other users profiles.
 * Responsive Design - the site needs to be fully responsive to cover a wide spectrum of screen sizes
-* Alternative colour modes available
-
 
 
 ### The Structure Plane
@@ -179,16 +177,16 @@ Arising from user stories
 | ** Provide users the ability to edit their account ** | 5 | 5 |
 | ** Provide users the ability to view other accounts ** | 5 | 5 |
 | ** Provide users the ability to delete their account ** | 5 | 5 |
-| ** Provide users the ability to change the colour scheme ** | 2 | 5 |
 | ** Provide users the ability to save a post ** | 3 | 5 |
-| ** Provide users the ability to rate a post ** | 3 | 5 |
 | ** Provide users the ability to access the site on any device ** | 5 | 5 |
 | ** Provide users the ability to search the site for posts ** | 4 | 5 |
 
 ### The Skeleton Plane
 #### Wireframe mock-ups
 
-Home page: 
+Wireframes were produced for each major page for desktop, mobile and tablet devices. As the site will be fully responsive, no matter the device size the user is viewing the site on, it will display accordingly.
+
+
 ![Home Page Wireframe]()
 
 
@@ -197,21 +195,6 @@ Home page:
 
 ![User Profile Desktop Wireframe]()
 
-
-![Post search page with results desktop wireframe]()
-
-
-![Profile search page with results desktop wireframe]()
-
-Wireframes were also produced for each major page for both mobile and tablet devices. With the intention of the site being fully responsive so that no matter the device size the user is viewing the site on, it will display accordingly.
-
-* [Home page mobile wireframe]()
-* [Home page tablet wireframe]()
-* [Post detail page mobile wireframe]()
-* [Post search page mobile wireframe]()
-* [Post search page tablet wireframe]()
-* [User profile search results page mobile wireframe]()
-* [User profile search results page tablet wireframe]()
 
 #### Database Schema
 
@@ -248,62 +231,42 @@ The navigation bar and the user menu are fully responsive, adapting to narrower 
 
 ![mobile user menu open]()
 
-#### Colour Mode Settings
-Users have the ability to change the colour scheme in use on the site through a settings menu which opens a modal containing a toggle switch.
-
-![mobile colour modal open]()
-
 #### Footer
 A common footer is utilised through out the site to encourage users to visit the social media sites of the main site. They currently direct users to the generic social media sites, all external links open in a new tab.
 
 ![footer]()
 
-#### Post Search
-Users have the ability to search the database of post against the post title and the author of the post username.
-
-![Post search Desktop]()
 
 #### Post Cards
 
 ##### Standard Post Card
 ![Standard Post Card]()
 
-##### Liked Post Card with video
+##### Liked Post Card
 ![Liked Post card]()
-
-##### Favourited Post Card
-![Favourited Post Card]()
 
 #### User Profile
 
 ![Owner Profile Page]()
 
-Users can also access their own posts, and the recipes they have liked from their profile page quickly and easily.
-
-![Easy Access to own and liked posts]()
+Users have access to their information by quickly visiting this page. Other users who don't own the visited profile page will also have access to other social accounts of the User. 
 
 #### Edit Profile Page
-Users have the ability to edit their profiles on the site. The edit profile page is clearly laid out, and informs the user of the characters remaining for each field. The current profile image is displayed with the user having the ability to change the image.
+Users have the ability to edit their profiles on the site. The edit profile page is clearly laid out, and informs the user of the characters remaining for each field.
 
 ![Edit profile page]()
 
 #### Create/Edit Post Page
-Users have the ability to create and edit their posts. The create recipe and edit post page is clearly laid out, with the steps sectioned off and individually editable/deletable.
+Users have the ability to create and edit their posts. The create and edit post page is clearly laid out and with the inclusion of the TinyMCE widget, easily modified if necessary. 
 
 ##### Post Form
 ![Post Form]()
 
-##### Steps Form
-![Steps Form]()
-
 #### Access to Edit Post and Delete Post Functionality
-Only the users that create the post can edit it or delete it. If the authorised user is the post author, then the edit recipe and delete post buttons will appear on the recipe detail page. The post like counter appears on the recipe card for posts the user created, however it is not functional, and only displays the total number of likes that post has received.
+Only the users that create the post can edit it or delete it. If the authorised user is the post author, then the edit recipe and delete post buttons will appear in the masthead of that page.
 
 ##### Own post detail card
 ![Own post detail card]()
-
-##### Other users post detail card
-![Other Users Post Detail Card]()
 
 
 ## Future Enhancements
