@@ -28,6 +28,14 @@ class UserUpdateForm(forms.ModelForm):
         ]
 
 
+class UserDeleteForm(forms.ModelForm):
+    email = forms.EmailField()
+
+    class Meta:
+        model = User
+        fields = ['email']
+
+
 class ProfileForm(forms.ModelForm):
     class Meta:
         model = Profile
@@ -38,3 +46,4 @@ class ProfileForm(forms.ModelForm):
             'social_youtube',
             'social_website'
         ]
+

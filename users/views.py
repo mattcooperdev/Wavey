@@ -1,8 +1,12 @@
-from django.shortcuts import render, redirect, get_object_or_404
+from django.shortcuts import render, redirect, get_object_or_404, reverse
 from django.contrib import messages
+from django.contrib.auth import logout
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
-from .forms import UserRegisterForm, UserUpdateForm, ProfileForm
+from .forms import (UserRegisterForm,
+                    UserUpdateForm,
+                    UserDeleteForm,
+                    ProfileForm)
 from .models import Profile
 
 
@@ -65,3 +69,26 @@ def editProfile(request):
             'profile_form': profile_form
         }
     return render(request, 'users/edit_profile.html', context)
+
+
+@login_required
+def deleteProfile(request):
+    '''
+    View to delete profile after confirming email address
+    '''
+    profile = get_object_or_404(Profile, user=request.user)
+    if request.method == 'POST':
+        form = UserDeleteForm(request.POST)
+        if form.is_valid():
+            if form.cleaned_data.get('email') == profile.user.email:
+                user = request.user
+                logout(request)
+                user.delete()
+                messages.success(request, 'Account deleted!')
+                return redirect(reverse('home'))
+            else:
+                messages.error(request, 'Incorrect email entered!')
+    else:
+        form = UserDeleteForm()
+        context = {'form': form}
+        return render(request, 'users/delete_profile.html', context)
