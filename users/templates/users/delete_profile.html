@@ -7,11 +7,12 @@
         {% csrf_token %}
         <fieldset class="form-group">
             <legend class="border-bottom mb-4">Are you sure you want to delete {{ user.username }}'s Profile?</legend>
+            <p class="text-secondary">If so, type the email address associated to this profile below: </p>
             {{ form|crispy }}
         </fieldset>
         <div class="form-group">
             <button class="btn btn-outline-danger mt-2" type="submit">Yes, Delete</button>
-            <a href="{% url 'profile' %}" class="text-secondary">No, get me out of here</a>
+            <a href="{% url 'profile' %}" class="text-secondary pt-3">No, get me out of here</a>
         </div>
     </form>
 </div>

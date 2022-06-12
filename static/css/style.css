@@ -171,15 +171,9 @@ a:hover {
     text-transform: uppercase;
 }
 
-.brand {
-    font-size: 1.4rem;
-    color: #4A4A4F;
-}
-
 .thin {
     font-weight: 300;
 }
-
 
 .masthead {
     margin-top: 10px;
@@ -259,10 +253,26 @@ a:hover {
     border: none;
 }
 
+/* Profile Page*/
+
 .account-img {
-    max-width: 200px;
+    height: 320px;
+    width: 320px;
     object-fit: cover;
 }
+
+.account-heading {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top : 1rem;
+}
+
+.media-body {
+    margin: 1rem;
+}
+
+/* Footer */
 
 .footer p {
     color: var(--dark);

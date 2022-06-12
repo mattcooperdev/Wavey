@@ -18,9 +18,15 @@ from django.urls import path, include
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    # summernote for admin post creation
     path('summernote/', include('django_summernote.urls')),
+    # tinyMCE for User post creation
     path('tinymce/', include('tinymce.urls')),
     path('', include('blog.urls'), name='blog_urls'),
+    # allauth requirement
     path('account/', include('allauth.urls')),
     path('users/', include('users.urls')),
 ]
+
+handler404 = 'blog.views.error_404'
+handler500 = 'blog.views.error_500'
