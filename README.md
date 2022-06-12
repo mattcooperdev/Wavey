@@ -56,7 +56,7 @@ Please note: To open any links in this document in a new browser tab, please pre
 2. User Profile [#2](https://github.com/YesCoops/wavey-blog/issues/2)
 3. User login [#3](https://github.com/YesCoops/wavey-blog/issues/3)
 4. User posts [#5](https://github.com/YesCoops/wavey-blog/issues/5)
-5. Post search [#6](https://github.com/YesCoops/wavey-blog/issues/6) 
+5. Post search [#6](https://github.com/YesCoops/wavey-blog/issues/6)
 6. Post viewing [#7](https://github.com/YesCoops/wavey-blog/issues/7)
 7. Post interaction [#8](https://github.com/YesCoops/wavey-blog/issues/8)
 8. Site Owner objectives [#4](https://github.com/YesCoops/wavey-blog/issues/4)
@@ -64,7 +64,7 @@ Please note: To open any links in this document in a new browser tab, please pre
 
 ### User Stories
 
-From the Epics, 38 User stories were developed. Each story was assigned a classification of Must-Have, Should-Have, Could-Have or Won't Have. Each story was also assigned user story points, based on my best estimation for the time/difficulty of completing each story. A combination of being new to story estimation, inexperience with Django and time constraints during development left me completing 61 story points from the initial total of 131. From the initial 131 points, 82 were for Could Have stories. A number of these stories were created based on an ideal scenario of building out the project whilst I knew in the time available it would be unlikely I would complete those stories. I will however revisit them at a later time for a redevelopment of the project. The full list of User Stories, seperated by those completed and those pushed to a future release is available on the project [kanban board](https://github.com/YesCoops/wavey-blog/projects/1).
+From the Epics, 38 User stories were developed. Each story was assigned a classification of Must-Have, Should-Have, Could-Have or Won't Have. Each story was also assigned user story points, based on my best estimation for the time/difficulty of completing each story. A combination of being new to story estimation, inexperience with Django and time constraints during development left me completing 61 story points from the initial total of 131. From the initial 131 points, 82 were for Could Have stories. A number of these stories were created based on an ideal scenario of building out the project whilst I knew in the time available it would be unlikely I would complete those stories. I will however revisit them at a later time for a redevelopment of the project. The full list of User Stories, seperated by those completed and those pushed to a future release is available on the project [kanban board](https://github.com/YesCoops/wavey/projects/1).
 
 These are the user stories that were completed within the projects first release, by Epic.
 
@@ -276,14 +276,11 @@ Only the users that create the post can edit it or delete it. If the authorised 
 
 ### Testing Strategy
 I utilised a manual testing strategy for the development of the site. A full detailed breakdown of the testing procedures and methodology can be found in the testing.md file [here]().
-Seperate to the functionality testing of the site, and the testing of the code, User Story tests were implemented to ensure that the acceptance criteria of the user stories listed above were met. The commit at which the functionality requirements for each user story were met is listed in the issues section of the repo. It was applied to each issue before it was closed and marked as completed.
-
+Seperate to the functionality testing of the site, and the testing of the code, User Story tests were implemented to ensure that the acceptance criteria of the user stories listed above were met. 
 
 #### Testing Overview
 
-
 Testing was divided into different sections to ensure everything was tested individually with test cases developed for each area.
-
 
 A full detailed breakdown of the testing procedures and methodology can be found in the testing.md file [here]()
 
@@ -295,7 +292,16 @@ A full detailed breakdown of the testing procedures and methodology can be found
 
 Development bugs: 
 
-25/05/22 = Register form was returning ValuError as didn't return HttpResponse object when invalid data was input to create a User. Fix - In register function the render return was incorrectly indented when the if statement wasn't met. Amending this resolved the issue and user validation was restored.
+ISSUE - Register form was returning ValuError as didn't return HttpResponse object when invalid data was input to create a User. 
+FIX - In register function the render return was incorrectly indented when the if statement wasn't met. Amending this resolved the issue and user validation was restored.
+
+ISSUE - When submitting a new post an integrity error for a duplicate primary key was being shown. The duplicate being created was an empty string, causing an error for the super().save() method when calling the form_valid function. 
+FIX - Creating a save function in the Post model which looked at the newly-created slug, stripping any empty space and replacing with a hyphen, then calling the super().save() resolved the issue.
+
+ISSUE - When TinyMCE widget was installed in the Create Post view, when you tried to submit a post with all required fields filled the submit request was not working. 
+FIX - Setting the content CharField in the Post model to blank="null" resolved the issue. 
+
+
 
 #### Technologies Used
 
@@ -351,7 +357,7 @@ To deploy the project through Heroku I followed these steps:
 By forking the GitHub Repository you can make a copy of the original repository to view or change without it effecting the original repository
 This can be done by
     * Log into GitHub or create an account.
-    * Locate the repository at https://github.com/YesCoops/wavey-blog .
+    * Locate the repository at https://github.com/YesCoops/wavey.
     * At the top of the repository, on the right side of the page, select "Fork" from the buttons available.
     * A copy of the repository should now be created in your own repository.
 

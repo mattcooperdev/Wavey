@@ -1,8 +1,9 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 from .forms import UserRegisterForm, UserUpdateForm, ProfileForm
 from .models import Profile
+from django.contrib.auth.models import User
 
 
 def register(request):
@@ -47,9 +48,10 @@ def editProfile(request):
             messages.success(request, 'Profile updated')
             return redirect('profile')
     else:
-        user_form = UserUpdateForm(request.POST, instance=request.user)
-        profile_form = ProfileForm(request.POST, request.FILES,
-                                   instance=request.user.profile)
+        profile = get_object_or_404(Profile, user=request.user)
+        user = get_object_or_404(User, username=request.user.username)
+        user_form = UserUpdateForm(instance=user)
+        profile_form = ProfileForm(instance=profile)
         context = {
             'user_form': user_form,
             'profile_form': profile_form
