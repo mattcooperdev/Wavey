@@ -9,6 +9,10 @@ from .forms import CommentForm
 
 
 class PostList(generic.ListView):
+    '''
+    View for list of posts on homepage
+    paginated by 6 articles each page
+    '''
     model = Post
     queryset = Post.objects.filter(status=1).order_by('-created_on')
     template_name = 'index.html'
@@ -16,6 +20,10 @@ class PostList(generic.ListView):
 
 
 class PostDetail(View):
+    '''
+    View for detailed post page
+    with comments on POST view
+    '''
     def get(self, request, slug, *args, **kwargs):
         queryset = Post.objects.filter(status=1)
         post = get_object_or_404(queryset, slug=slug)
@@ -97,7 +105,6 @@ class UpdatePost(LoginRequiredMixin, SuccessMessageMixin, UserPassesTestMixin, g
     template_name = "update_post.html"
     fields = ['title', 'featured_image', 'content']
     success_message = "Post updated successfully!"
-    # form = PostForm(request.POST or None, request.FILES or None)
 
     def form_valid(self, form):
         form.instance.author = self.request.user

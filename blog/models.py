@@ -4,6 +4,8 @@ from django.urls import reverse
 from cloudinary.models import CloudinaryField
 
 
+# Can set to draft for admin to control posting
+# Of articles and comments
 STATUS = ((0, "Draft"), (1, "Published"))
 
 
@@ -25,15 +27,26 @@ class Post(models.Model):
     likes = models.ManyToManyField(User, related_name='blog_likes', blank=True)
 
     class Meta:
+        '''
+        Decides ordering of posts from
+        most recent first
+        '''
         ordering = ['-created_on']
 
     def __str__(self):
         return self.title
 
     def number_of_likes(self):
+        '''
+        Shows count of likes added to post
+        '''
         return self.likes.count()
 
     def get_absolute_url(self):
+        '''
+        Will return successful post
+        to related slug url
+        '''
         return reverse('post_detail', kwargs={'slug': self.slug})
 
     def save(self, *args, **kwargs):
@@ -56,6 +69,10 @@ class Comment(models.Model):
     approved = models.BooleanField(default=False)
 
     class Meta:
+        '''
+        Decides ordering of comments from
+        oldest first
+        '''
         ordering = ['created_on']
 
     def __str__(self):

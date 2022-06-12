@@ -1,12 +1,15 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
+from django.contrib.auth.models import User
 from .forms import UserRegisterForm, UserUpdateForm, ProfileForm
 from .models import Profile
-from django.contrib.auth.models import User
 
 
 def register(request):
+    '''
+    View for registering new User
+    '''
     if request.method == 'POST':
         form = UserRegisterForm(request.POST)
         if form.is_valid():
@@ -39,7 +42,9 @@ def profile(request):
 @login_required
 def editProfile(request):
     if request.method == 'POST':
+        # User form containing username and email
         user_form = UserUpdateForm(request.POST, instance=request.user)
+        # Profile form containing Profile model fields
         profile_form = ProfileForm(request.POST, request.FILES,
                                    instance=request.user.profile)
         if user_form.is_valid() and profile_form.is_valid():
@@ -48,9 +53,12 @@ def editProfile(request):
             messages.success(request, 'Profile updated')
             return redirect('profile')
     else:
+        # get an instance of the Profile and the User
         profile = get_object_or_404(Profile, user=request.user)
         user = get_object_or_404(User, username=request.user.username)
+        # User form containing username and email
         user_form = UserUpdateForm(instance=user)
+        # Profile form containing Profile model fields
         profile_form = ProfileForm(instance=profile)
         context = {
             'user_form': user_form,
