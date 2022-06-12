@@ -90,7 +90,7 @@ class PostLike(View):
     '''
     def post(self, request, slug):
         '''
-        Will find post object and if user is 
+        Will find post object and if user is
         valid will check for like and add if not there
         '''
         post = get_object_or_404(Post, slug=slug)
@@ -139,6 +139,7 @@ class UpdatePost(LoginRequiredMixin,
         if self.request.user == post.author:
             return True
         return False
+
 
 class DeletePost(LoginRequiredMixin,
                  SuccessMessageMixin,

@@ -35,6 +35,9 @@ def register(request):
 
 @login_required
 def profile(request):
+    '''
+    View for profile
+    '''
     return render(
         request,
         'users/profile.html',
@@ -45,6 +48,9 @@ def profile(request):
 
 @login_required
 def editProfile(request):
+    '''
+    View to edit profile
+    '''
     if request.method == 'POST':
         # User form containing username and email
         user_form = UserUpdateForm(request.POST, instance=request.user)

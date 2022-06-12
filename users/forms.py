@@ -46,4 +46,3 @@ class ProfileForm(forms.ModelForm):
             'social_youtube',
             'social_website'
         ]
-
