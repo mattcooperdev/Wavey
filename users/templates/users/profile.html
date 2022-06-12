@@ -15,7 +15,7 @@
                 <h2 class="account-heading">{{ user.username }}'s Profile</h2>
                 <p class="text-secondary">Email: {{ user.email }}</p>
                 {% if user.profile.bio %}
-                <p class="text-secondary">Bio: {{ user.profile.bio }}</p>
+                <p class="text-secondary">Bio: {{ user.profile.bio | safe }}</p>
                 {% else %}
                 <p class="text-secondary">Bio: No Bio shared</p>
                 {% endif %}

@@ -25,6 +25,9 @@ class PostDetail(View):
     with comments on POST view
     '''
     def get(self, request, slug, *args, **kwargs):
+        '''
+        Get method to instantiate the view
+        '''
         queryset = Post.objects.filter(status=1)
         post = get_object_or_404(queryset, slug=slug)
         comments = post.comments.filter(approved=True).order_by('-created_on')
@@ -45,6 +48,10 @@ class PostDetail(View):
             )
 
     def post(self, request, slug, *args, **kwargs):
+        '''
+        Post method to render comment form and post comment
+        if User is valid
+        '''
         queryset = Post.objects.filter(status=1)
         post = get_object_or_404(queryset, slug=slug)
         comments = post.comments.filter(approved=True).order_by('-created_on')
@@ -60,6 +67,7 @@ class PostDetail(View):
             comment = comment_form.save(commit=False)
             comment.post = post
             comment.save()
+            messages.success(request, 'Comment submitted for review')
         else:
             comment_form = CommentForm()
 
@@ -77,8 +85,14 @@ class PostDetail(View):
 
 
 class PostLike(View):
-
+    '''
+    View to like a post if valid User
+    '''
     def post(self, request, slug):
+        '''
+        Will find post object and if user is 
+        valid will check for like and add if not there
+        '''
         post = get_object_or_404(Post, slug=slug)
 
         if post.likes.filter(id=request.user.id).exists():
@@ -90,6 +104,9 @@ class PostLike(View):
 
 
 class AddPost(LoginRequiredMixin, SuccessMessageMixin, generic.CreateView):
+    '''
+    View for adding post
+    '''
     model = Post
     template_name = "add_post.html"
     fields = ['title', 'featured_image', 'content']
@@ -100,7 +117,13 @@ class AddPost(LoginRequiredMixin, SuccessMessageMixin, generic.CreateView):
         return super().form_valid(form)
 
 
-class UpdatePost(LoginRequiredMixin, SuccessMessageMixin, UserPassesTestMixin, generic.UpdateView):
+class UpdatePost(LoginRequiredMixin,
+                 SuccessMessageMixin,
+                 UserPassesTestMixin,
+                 generic.UpdateView):
+    '''
+    View for updating a post if User is author
+    '''
     model = Post
     template_name = "update_post.html"
     fields = ['title', 'featured_image', 'content']
@@ -117,7 +140,13 @@ class UpdatePost(LoginRequiredMixin, SuccessMessageMixin, UserPassesTestMixin, g
             return True
         return False
 
-class DeletePost(LoginRequiredMixin, SuccessMessageMixin, UserPassesTestMixin, generic.DeleteView):
+class DeletePost(LoginRequiredMixin,
+                 SuccessMessageMixin,
+                 UserPassesTestMixin,
+                 generic.DeleteView):
+    '''
+    View for deleting post if User is author
+    '''
     model = Post
     template_name = "delete_post.html"
     success_url = '/'
