@@ -163,6 +163,7 @@ a:hover {
         left: 9%;
     }
 }
+
 /*Post Card */
 
 .card-img {
@@ -233,6 +234,8 @@ a:hover {
     font-weight: 300;
 }
 
+/* Post Detail */
+
 .masthead {
     margin-top: 10px;
     overflow: hidden;
@@ -287,6 +290,27 @@ a:hover {
     color: var(--grey);
 }
 
+/* Profile Page*/
+
+.account-img {
+    height: 300px;
+    width: 300px;
+    object-fit: cover;
+}
+
+.account-heading {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top : 1rem;
+}
+
+.media-body {
+    margin: 1rem;
+}
+
+/*links and buttons*/
+
 .link {
     color: var(--green);
     text-decoration: none;
@@ -313,25 +337,6 @@ a:hover {
 
 .btn-lg:hover {
     color: var(--orange);
-}
-
-/* Profile Page*/
-
-.account-img {
-    height: 300px;
-    width: 300px;
-    object-fit: cover;
-}
-
-.account-heading {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-top : 1rem;
-}
-
-.media-body {
-    margin: 1rem;
 }
 
 /* Footer */
