@@ -9,7 +9,11 @@
                 <h1 class="post-title">
                     {{ post.title }}
                 </h1>
+                {% if user.is_authenticated %}
                 <p class="post-subtitle"> {{ post.author }} | {{ post.created_on|date:"F d, Y" }}</p>
+                {% else %}
+                <p class="post-subtitle"> {{ post.author }} | {{ post.created_on|date:"F d, Y" }}</p>
+                {% endif %}
                 {% if post.author == user %}
                 <a class="post-subtitle" href="{% url 'update_post' post.slug %}">Update</a>
                 <a class="post-subtitle" href="{% url 'delete_post' post.slug %}">Delete</a>

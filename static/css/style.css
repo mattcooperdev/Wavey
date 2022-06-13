@@ -35,6 +35,8 @@ a:hover {
     color: var(--orange);
 }
 
+/* Message popup */
+
 #msg {
     font-family: Spline Sans Mono, sans-serif;
     background-color: var(--green);
@@ -52,6 +54,8 @@ a:hover {
     position: relative;
 }
 
+/* Underline effect */
+
 .nav-link:before {
     content: "";
     position: absolute;
@@ -64,6 +68,13 @@ a:hover {
     visibility: hidden;
     transform: scaleX(0);
     transition: all 0.3s ease-in-out;
+}
+
+@media screen and (max-width: 991px) {
+    .nav-link:before {
+        left: 0;
+        width: 20%;
+    }
 }
 
 .nav-link:hover:before {
@@ -137,21 +148,21 @@ a:hover {
         font-size: 120%;
         width: 350px;
     }
-
+}
 @media screen and (max-width: 490px) {
     .hero-text {
         font-size: 80%;
         width: 270px;
         left: 15%;
     }
-
+}
 @media screen and (max-width: 400px) {
     .hero-text {
         font-size: 75%;
         width: 255px;
-        left: 10%;
+        left: 9%;
     }
-
+}
 /*Post Card */
 
 .card-img {
@@ -176,6 +187,8 @@ a:hover {
     border: none;
     background-color: var(--white);
 }
+
+/* If User not authorised will block content */
 
 .card-body-unauth {
     margin: 1rem;
@@ -301,8 +314,8 @@ a:hover {
 /* Profile Page*/
 
 .account-img {
-    height: 320px;
-    width: 320px;
+    height: 300px;
+    width: 300px;
     object-fit: cover;
 }
 
