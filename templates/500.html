@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+{% load cloudinary %}
+{% block content %}
+<div class="container">
+    <div class="row">
+        <h1>500 Server Error</h1>
+        <p>This page is for members only</p>
+        <p>Please <a href="{% url 'account_login' %}" aria-label="Login to you account">log in</a> or <a href="{% url 'register' %}" aria-label="register for the site">sign up</a> instead.</p>
+        <p>Alternatively, <a href="{% url 'home' %}">Go Home</a></p>
+    </div>
+</div>
+{% endblock %}
