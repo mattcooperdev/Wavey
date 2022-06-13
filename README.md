@@ -301,10 +301,48 @@ FIX - Creating a save function in the Post model which looked at the newly-creat
 ISSUE - When TinyMCE widget was installed in the Create Post view, when you tried to submit a post with all required fields filled the submit request was not working. 
 FIX - Setting the content CharField in the Post model to blank="null" resolved the issue. 
 
+ISSUE - Featured image field was not uploading related media to cloudinary when creating a Post, thus not replacing the masthead placeholder image as desired. 
+FIX - Adding the necessary enctype="multipart/form-data" to the relevant forms sent images to cloudinary and therefore to the related post.
 
+ 
 
 #### Technologies Used
 
+* Python
+    * The following python modules were used on this project:
+        * cloudinary==1.29.0
+        * dj-database-url==0.5.0
+        * dj3-cloudinary-storage==0.0.6
+        * Django==3.2
+        * django-allauth==0.48.0
+        * gunicorn==20.1.0
+        * oauthlib==3.2.0
+        * psycopg2==2.9.3
+        * sqlparse==0.4.2
+
+* Django
+    * Django was used as the main python framework in the development of this project
+    * Django AllAuth was utilised to provide enhanced user account management functionality.
+* Heroku
+    * Was used as the cloud based platform to deploy the site on
+* Heroku PostgreSQL
+    * Heroku PostgreSQL was used as the database for this project during development and in production.
+* JavaScript
+    * Custom JavaScript was used for the timeout of system messages presented.
+* Bootstrap 5.01
+    * Bootstrap was used for general layout and spacing requirements for the site.
+* Font Awesome
+    * Was used for access to several icons for different sections where icons were appropriate.
+* CSS
+    * Custom css was written for areas on the site to implement custom styling.
+* Jinja/Django Templating
+    * Jinja/Django templating language was utilised to insert data from the database into the sites pages. It was also utilised to perform queries on different datasets.
+* HTML
+    * HTML was used as the base language for the templates created for the site.
+* TinyMCE
+    * Used in the textareas on site where instructed to allow posts to contain external links to images and audio. 
+* Summernote
+    * Summernote was utilised in the inital stages of the site for use in the admin area. However, as Summernote only accepts images as its media capabilities, it was replaced for the front-end. 
 
 #### Packages Used
 
