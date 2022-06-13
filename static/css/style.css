@@ -35,6 +35,12 @@ a:hover {
     color: var(--orange);
 }
 
+#msg {
+    font-family: Spline Sans Mono, sans-serif;
+    background-color: var(--green);
+    color: var(--white);
+}
+
 /* NavBar */
 
 .nav-item{
@@ -66,9 +72,10 @@ a:hover {
 }
 
 .navbar-logo {
-    max-width: 350px;
+    max-width: 200px;
     margin-left: 1rem;
 }
+
 
 .navbar-collapse {
     flex-grow: 0;
@@ -85,6 +92,7 @@ a:hover {
 .carousel, 
 .carousel-item {
     height: 50vh;
+    min-height: 500px;
 }
 
 .carousel-item img{
@@ -106,6 +114,43 @@ a:hover {
     position: center;
     object-fit: cover;
 }
+
+.hero-text {
+    font-size: 150%;
+    text-transform: uppercase;
+    letter-spacing: 4px;
+    max-width: 400px;
+    padding: 10px;
+    bottom: 10%;
+    left: 10%;
+    position: absolute;
+    background-color: var(--green);
+    color: var(--white)
+}
+
+.hero-text h1 {
+    font-size: 300%;
+}
+
+@media screen and (max-width: 930px) {
+    .hero-text {
+        font-size: 120%;
+        width: 350px;
+    }
+
+@media screen and (max-width: 490px) {
+    .hero-text {
+        font-size: 80%;
+        width: 270px;
+        left: 15%;
+    }
+
+@media screen and (max-width: 400px) {
+    .hero-text {
+        font-size: 75%;
+        width: 255px;
+        left: 10%;
+    }
 
 /*Post Card */
 
