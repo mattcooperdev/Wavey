@@ -10,7 +10,7 @@
                     {{ post.title }}
                 </h1>
                 {% if user.is_authenticated %}
-                <p class="post-subtitle"> {{ post.author }} | {{ post.created_on|date:"F d, Y" }}</p>
+                <p class="post-subtitle"><a href="{% url 'author_profile' post.author %}">{{post.author}}</a> | {{ post.created_on|date:"F d, Y" }}</p>
                 {% else %}
                 <p class="post-subtitle"> {{ post.author }} | {{ post.created_on|date:"F d, Y" }}</p>
                 {% endif %}

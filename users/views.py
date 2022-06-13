@@ -38,11 +38,26 @@ def profile(request):
     '''
     View for profile
     '''
+    profile = Profile.objects.get(user__username=request.user.username)
     return render(
         request,
         'users/profile.html',
         {
             'profile': profile},
+        )
+
+@login_required
+def authorprofile(request, username):
+    '''
+    View for profile
+    '''
+    author_profile = Profile.objects.get(user__username=username)
+    print(author_profile)
+    return render(
+        request,
+        'users/profile.html',
+        {
+            'profile': author_profile},
         )
 
 
@@ -98,3 +113,4 @@ def deleteProfile(request):
         form = UserDeleteForm()
         context = {'form': form}
         return render(request, 'users/delete_profile.html', context)
+

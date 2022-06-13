@@ -5,36 +5,36 @@
 <div class="container mt-4 mb-4 p-3 d-flex justify-content-center">
     <div class="p-4">
         <div class="image d-flex flex-column justify-content-center align-items-center">
-            {% if 'placeholder' in user.profile.profile_image.url %}
+            {% if 'placeholder' in profile.profile_image.url %}
             <img src="https://res.cloudinary.com/yescoops/image/upload/v1653922812/Default_Profile_zdn8p1.svg"
                 alt="Default profile image" class="rounded-circle account-img">
             {% else %}
-            <img src="{{ user.profile.profile_image.url }}" alt="User profile image" class="rounded-circle account-img">
+            <img src="{{ profile.profile_image.url }}" alt="User profile image" class="rounded-circle account-img">
             {% endif %}
             <div class="media-body">
-                <h2 class="account-heading">{{ user.username }}'s Profile</h2>
-                <p class="text-secondary">Email: {{ user.email }}</p>
-                {% if user.profile.bio %}
-                <p class="text-secondary">Bio: {{ user.profile.bio | safe }}</p>
+                <h2 class="account-heading">{{ profile.user.username }}'s Profile</h2>
+                <p class="text-secondary">Email: {{ profile.user.email }}</p>
+                {% if profile.bio %}
+                <p class="text-secondary">Bio: {{ profile.bio | safe }}</p>
                 {% else %}
                 <p class="text-secondary">Bio: No Bio shared</p>
                 {% endif %}
-                {% if user.profile.location %}
-                <p class="text-secondary">Location: {{ user.profile.location }}</p>
+                {% if profile.location %}
+                <p class="text-secondary">Location: {{ profile.location }}</p>
                 {% else %}
                 <p class="text-secondary">Location: Not telling you that</p>
                 {% endif %}
-                {% if user.profile.social_youtube %}
-                <p class="text-secondary">YouTube: <a href="{{ user.profile.social_youtube }}" target="_blank"
+                {% if profile.social_youtube %}
+                <p class="text-secondary">YouTube: <a href="{{ profile.social_youtube }}" target="_blank"
                         rel="noreferrer" rel="noopener" aria-label="User's Youtube channel"><i
                             class="fa-brands fa-youtube"></i></a>
                 </p>
                 {% else %}
                 <p class="text-secondary">YouTube: No channel</p>
                 {% endif %}
-                {% if user.profile.social_website %}
+                {% if profile.social_website %}
                 <p class="text-secondary">Website:
-                    <a class="social-link" href="{{ user.profile.social_website }}" target="_blank" rel="noreferrer"
+                    <a class="social-link" href="{{ profile.social_website }}" target="_blank" rel="noreferrer"
                         rel="noopener" aria-label="User Social Website"><i class="fa-solid fa-globe"></i></a>
                 </p>
                 {% else %}
