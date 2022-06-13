@@ -19,7 +19,6 @@ Please note: To open any links in this document in a new browser tab, please pre
         * [Epics](#Epics)
         * [User Stories](#User-Stories)
     * [The Scope Plane](#The-Scope-Plane)
-    * [The Structure Plane](#The-Structure-Plane)
         * [Opportunities](#Opportunities)
     * [The Skeleton Plane](#The-Skeleton-Plane)
         * [Wireframes](#Wireframe-mockups)
@@ -64,7 +63,7 @@ Please note: To open any links in this document in a new browser tab, please pre
 
 ### User Stories
 
-From the Epics, 38 User stories were developed. Each story was assigned a classification of Must-Have, Should-Have, Could-Have or Won't Have. Each story was also assigned user story points, based on my best estimation for the time/difficulty of completing each story. A combination of being new to story estimation, inexperience with Django and time constraints during development left me completing 61 story points from the initial total of 131. From the initial 131 points, 82 were for Could Have stories. A number of these stories were created based on an ideal scenario of building out the project whilst I knew in the time available it would be unlikely I would complete those stories. I will however revisit them at a later time for a redevelopment of the project. The full list of User Stories, seperated by those completed and those pushed to a future release is available on the project [kanban board](https://github.com/YesCoops/wavey/projects/1).
+From the Epics, 24 User stories were developed. Each story was assigned a classification of Must-Have, Should-Have, Could-Have or Won't Have. Inexperience with Django and time constraints during development left me completing 23 of the 24 User stories. I will however revisit the project at a later time for improvement. All of this information is avaialble on this [kanban board](https://github.com/YesCoops/wavey/projects/1).
 
 These are the user stories that were completed within the projects first release, by Epic.
 
@@ -78,13 +77,11 @@ These are the user stories that were completed within the projects first release
 	
 5. Post management
 
-6. Post search
+6. Post viewing
 
-7. Post viewing
+7. Post interaction
 
-8. Post interaction
-
-9. Site owner objectives
+8. Site owner objectives
 
 	
 ### The Scope Plane
@@ -99,69 +96,6 @@ These are the user stories that were completed within the projects first release
 * Users can logout of their account
 * Users need to be registered and logged in to create and like posts and access other users profiles.
 * Responsive Design - the site needs to be fully responsive to cover a wide spectrum of screen sizes
-
-
-### The Structure Plane
-
-User Story:
-
-> US#13 - Create a User Account - As a User I can create an account so that I can create, save and like posts
-
-Acceptance Criteria:
-* Given that I am an unregistered User, when I access the Site, then I can register as a User
-* Given that I am an unregistered User, when I am on the user registration page and input a valid Username, email address and password, then the system creates me an account
-* Given that I am a registered User, when I am logged into my account, then I can create my own post and see what posts I have saved
-* Given that I am a registered user, When I am logged into my account, then I do not see the register button
-
-Implementation:
-* Clearly accessible call to action on homepage to register for an account
-* Clearly accessible link to login or register within main navigation bar
-* Easy to use User registration process
-* Clear UX design, prevent unnecessary links to register as a user, if user is already logged in.
-
-User Story:
-
-> US#14 - Users can view their profile - As a user I can see what is in my profile so that I understand what other users can see about my profile
-
-Acceptance Criteria:
-* Given that I am logged in to my account, when I can select the option to view my profile, then I see how my profile is displayed to to other users
-* Given that I am logged in to my account, when I select a username associated to a post, then I am directed to their full profile page
-
-Implementation:
-* Prevent information appearing on users' profile that other users are not allowed to see such as account information
-* If information is required to be displayed that other users can not see, clearly label that information so users are aware that others can not see it.
-
-User Story:
-
-> US#15 - Users can edit their profile - As a User I can edit my profile so that I can keep my information up to date
-
-Acceptance Criteria:
-* Given that I am logged into my account, when I am viewing my profile, then I should be able to edit those details
-* Given that I am logged into my account, when I click on the edit profile button, then I am taken to the relevant page to do so
-* Given that I am not logged in to my account, when I go to any profile page, then I do not see the edit profile button
-* Given that I am not logged in to my account, when I try and go directly to mine or somebody's edit profile page through their URL, then I get redirected to the login page
-
-Implementation:
-* Provide a clearly accessible button on a users profile for the profile owner only, so they can edit their profile
-* Provide a simple and clear edit profile form, linked from the edit profile button
-
-User Story:
-
-> US#16 - Users can delete their profile - As a User I can delete my profile so that I can remove my data and posts at my request
-
-Acceptance Criteria:
-* Given that I am a registered User, when I am logged in to my account, then I have the option to delete my account
-* Given that I am a registered User, when I click on the option to delete my account, then I have to confirm that I wish to do so
-* Given that I am a registered User, when I have confirmed that I wish to delete my account, then my profile and all data associated with it is deleted
-* Given that I am a registered User, when the account is full deleted, then I receive a confirmation that this action has taken place
-
-
-Implementation:
-* Provide users with an easily accessible option to delete their account
-* Provide users with a secure confirmation process to confirm account deletion requests to prevent accidents
-* Link all user created elements so that when a user deletes their account, all associated records are deleted.
-* Provide the user with confirmation that their account and associated records have been deleted when requested.
-
 
 
 #### Opportunities
@@ -179,7 +113,6 @@ Arising from user stories
 | ** Provide users the ability to delete their account ** | 5 | 5 |
 | ** Provide users the ability to save a post ** | 3 | 5 |
 | ** Provide users the ability to access the site on any device ** | 5 | 5 |
-| ** Provide users the ability to search the site for posts ** | 4 | 5 |
 
 ### The Skeleton Plane
 #### Wireframe mock-ups
@@ -187,95 +120,100 @@ Arising from user stories
 Wireframes were produced for each major page for desktop, mobile and tablet devices. As the site will be fully responsive, no matter the device size the user is viewing the site on, it will display accordingly.
 
 
-![Home Page Wireframe]()
+![Home Page Wireframe](assets/wireframes/homepage.png)
 
 
-![Post Detail Desktop Wireframe]()
+![Post Detail Desktop Wireframe](assets/wireframes/post-detail.png)
 
 
-![User Profile Desktop Wireframe]()
+![User Profile Desktop Wireframe](assets/wireframes/profile.png)
 
 
 #### Database Schema
 
+Custom Profile, Post and Comment models were built on top of the default Django User model, utilising Django's AllAuth to look after the user authentication. As AllAuth works with the generic User model, the Profile model was created to look after some custom fields that were not accounted for. I used [LucidChart](https://lucid.app/) to draw out the schema, listing all the relevant types to each requirement. As the schema was relatively simple, the use of foreign keys only became necessary with the author and post fields in the Post and Comment models respectively. 
 
-![Database Schema Diagram]()
+![Database Schema Diagram](assets/images/db-schema.png)
 
 ### The Surface Plane
 
 #### Design
 
+Once happy with the initial layout of the site, I focussed on it's design, looking for something clean and concise that put focus on the learning material that would be provided. The logo was created in [Canva](https://canva.com) and this led me towards the colour palette I decided upon:
+
+![Palette](assets/images/palette.png)
+
+The palette was then ran through the contrast checker and only those combinations that passed at AA or AAA were utilised on the site:
+
+![Contrast Grid](assets/images/contrast-grid.png)
 
 ##### Typography 
 
-##### Images
-
-
+Quicksand (Headers), Spline Sans Mono (body text) and sans serif (backup) were used for the fonts. 
 
 ## Features
+
 #### Home page
-
-
-![Home Page]()
 
 #### Navigation Bar
 The main navigation bar appears at the top of the page, clearly displaying the main navigational links users would require.
 
-![Logged in User Nav Bar]()
+![Logged in User Nav Bar](assets/screenshots/header.png)
 
 A secondary user menu is available to users who are logged into the site, users who are not logged in receive a login/register link in its place
 
-![logged in user nave bar user menu open]()
+![logged in user nave bar user menu open](assets/screenshots/navbar-login.png)
 
 The navigation bar and the user menu are fully responsive, adapting to narrower devices by appearing from the right hand side of the screen when the menu button is pressed.
 
-![mobile user menu open]()
+![mobile user menu open](assets/screenshots/header-collapse.png)
 
 #### Footer
 A common footer is utilised through out the site to encourage users to visit the social media sites of the main site. They currently direct users to the generic social media sites, all external links open in a new tab.
 
-![footer]()
+![footer](assets/screenshots/footer.png)
 
 
-#### Post Cards
+#### Post Card
 
-##### Standard Post Card
-![Standard Post Card]()
+The post card on the home page gives the title, image and author details, along with the creation date and like indicator. A hover effect is used to direct the User easily and a stretched link works over the entirity of the card. 
 
-##### Liked Post Card
-![Liked Post card]()
+![Standard Post Card](assets/screenshots/post-card.png)
+
 
 #### User Profile
 
-![Owner Profile Page]()
+Users have access to their information by quickly visiting this page. Other registered users who don't own the visited profile page will have access to the page and their social links, but will not see the edit and delete profile buttons. If a User is not logged in, they will not be able to access the page; looking up via URL will redirect them to the login page. 
 
-Users have access to their information by quickly visiting this page. Other users who don't own the visited profile page will also have access to other social accounts of the User. 
+![Owner Profile Page](assets/screenshots/profile-card.png)
 
 #### Edit Profile Page
 Users have the ability to edit their profiles on the site. The edit profile page is clearly laid out, and informs the user of the characters remaining for each field.
 
-![Edit profile page]()
+![Edit profile page](assets/screenshots/edit-profile.png)
 
 #### Create/Edit Post Page
 Users have the ability to create and edit their posts. The create and edit post page is clearly laid out and with the inclusion of the TinyMCE widget, easily modified if necessary. 
 
+![Edit Post Form](assets/screenshots/update-post.png)
+
 ##### Post Form
-![Post Form]()
+![Create Post Form](assets/screenshots/create-post.png)
 
 #### Access to Edit Post and Delete Post Functionality
-Only the users that create the post can edit it or delete it. If the authorised user is the post author, then the edit recipe and delete post buttons will appear in the masthead of that page.
+Only the users that create the post can edit it or delete it. If the authorised user is the post author, then the edit and delete post buttons will appear in the masthead of that page.
 
-##### Own post detail card
-![Own post detail card]()
+![Edit and Delete Post Masthead](assets/screenshots/post-detail-login.png)
 
 
 ## Future Enhancements
 
+There are several items of functionality I would like to add to the Site, which will be implemented at a later date. These include the remaining Epic on the Kanban board of giving the User the ability to search for posts, either by keyword or by tag. I would also like to add messaging fucntionality between User profiles, and the ability to like and reply to comments directly on the post detail page. 
 
 ## Testing
 
 ### Testing Strategy
-I utilised a manual testing strategy for the development of the site. A full detailed breakdown of the testing procedures and methodology can be found in the testing.md file [here]().
+A full detailed breakdown of the testing procedures and methodology can be found in the testing.md file [here]().
 Seperate to the functionality testing of the site, and the testing of the code, User Story tests were implemented to ensure that the acceptance criteria of the user stories listed above were met. 
 
 #### Testing Overview
@@ -287,10 +225,7 @@ A full detailed breakdown of the testing procedures and methodology can be found
 #### Validator Testing
 
 
-#### Notable Bugs
-
-
-Development bugs: 
+#### Development bugs
 
 ISSUE - Register form was returning ValuError as didn't return HttpResponse object when invalid data was input to create a User. 
 FIX - In register function the render return was incorrectly indented when the if statement wasn't met. Amending this resolved the issue and user validation was restored.
@@ -353,16 +288,23 @@ FIX - Adding the necessary enctype="multipart/form-data" to the relevant forms s
     * Summernote was utilised in the inital stages of the site for use in the admin area. However, as Summernote only accepts images as its media capabilities, it was replaced for the front-end. 
 
 #### Packages Used
-
+* GitHub for writing the code 
+* Heroku for the deployment
+* Canva for the logo creation
+* Balsamiq for the Wireframes
+* Lucid for the database schema
 
 #### Resources Used
+* Django Documentation was invaluable throughout the development process
+* Django AllAuth documentation
+* TinyMCE documentation when referring to the JavaScript scripting needed to use the widget without creating a custom form
+* The Code Institute material, namely the 'I Think Therefore I Blog' module was utilised throughout the build
+* [Codemy's YouTube playlist](https://youtu.be/B40bteAMM_M) on Django blog creation 
 
-
-##### Other Libraries Used
 
 ## Deployment
 
-The site was deployed via Heroku, and the live link can be found here - [Wavey Blog]()
+The site was deployed via Heroku, and the live link can be found here - [Wavey]()
 
 ### Project Deployment
 
@@ -420,4 +362,7 @@ This can be done by:
 ### Acknowledgements
 
 I'd like to thank the following:
-* Antonio Rodrigues for all her help during this project.
+
+* Antonio Rodrigues for all his help during this project.
+* The Tutors at Code Institute, who are there for you at your deepest times of need. 
+* My love, Mor and our incredible son, Leo, for whom I wouldn't have the drive and persistence to achieve any of this. 
