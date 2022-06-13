@@ -66,9 +66,11 @@
                             <div class="image-container">
                                 {% if "placeholder" in post.featured_image.url %}
                                 <img class="card-img-top card-img"
-                                    src="https://res.cloudinary.com/yescoops/image/upload/v1654601674/Music_Production_xl1b0i.jpg">
+                                    src="https://res.cloudinary.com/yescoops/image/upload/v1654601674/Music_Production_xl1b0i.jpg"
+                                    alt="Photo of bedroom producer">
                                 {% else %}
-                                <img class="card-img-top card-img" src=" {{ post.featured_image.url }}">
+                                <img class="card-img-top card-img" src=" {{ post.featured_image.url }}"
+                                    alt="{{ post.title }}">
                                 {% endif %}
                                 {% if user.is_authenticated %}
                                 <div class="image-flash">
