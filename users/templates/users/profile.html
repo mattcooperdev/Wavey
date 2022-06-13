@@ -41,12 +41,12 @@
                 <p class="text-secondary">Website: Nothing to see here</p>
                 {% endif %}
             </div>
-            {% if request.username == profile.username %}
-            <div class="column">
-                <a class="btn btn-info" href="{% url 'edit-profile' %}">Edit Profile</a>
-                <a class="btn btn-danger" href="{% url 'delete-profile' %}">Delete Profile</a>
-            </div>
-            {% endif %}
+                {% if request.user == profile.user %}
+                <div class="column">
+                    <a class="btn btn-info" href="{% url 'edit-profile' %}">Edit Profile</a>
+                    <a class="btn btn-danger" href="{% url 'delete-profile' %}">Delete Profile</a>
+                </div>
+                {% endif %}
         </div>
     </div>
 </div>

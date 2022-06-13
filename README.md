@@ -310,14 +310,22 @@ FIX - Adding the necessary enctype="multipart/form-data" to the relevant forms s
 
 * Python
     * The following python modules were used on this project:
+        * asgiref==3.5.1
         * cloudinary==1.29.0
         * dj-database-url==0.5.0
         * dj3-cloudinary-storage==0.0.6
-        * Django==3.2
-        * django-allauth==0.48.0
+        * Django==3.2.13
+        * django-allauth==0.50.0
+        * django-crispy-forms==1.14.0
+        * django-summernote==0.8.20.0
+        * django-tinymce==3.4.0
         * gunicorn==20.1.0
         * oauthlib==3.2.0
         * psycopg2==2.9.3
+        * PyJWT==2.3.0
+        * python3-openid==3.2.0
+        * pytz==2022.1
+        * requests-oauthlib==1.3.1
         * sqlparse==0.4.2
 
 * Django

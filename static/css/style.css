@@ -311,6 +311,10 @@ a:hover {
     border: none;
 }
 
+.btn-lg:hover {
+    color: var(--orange);
+}
+
 /* Profile Page*/
 
 .account-img {

@@ -46,10 +46,11 @@ def profile(request):
             'profile': profile},
         )
 
+
 @login_required
 def authorprofile(request, username):
     '''
-    View for profile
+    View for profile of post author
     '''
     author_profile = Profile.objects.get(user__username=username)
     print(author_profile)
