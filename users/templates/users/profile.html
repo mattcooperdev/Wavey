@@ -25,12 +25,18 @@
                 <p class="text-secondary">Location: Not telling you that</p>
                 {% endif %}
                 {% if user.profile.social_youtube %}
-                <p class="text-secondary">YouTube: {{ user.profile.social_youtube }}</p>
+                <p class="text-secondary">YouTube: <a href="{{ user.profile.social_youtube }}" target="_blank"
+                        rel="noreferrer" rel="noopener" aria-label="User's Youtube channel"><i
+                            class="fa-brands fa-youtube"></i></a>
+                </p>
                 {% else %}
                 <p class="text-secondary">YouTube: No channel</p>
                 {% endif %}
                 {% if user.profile.social_website %}
-                <p class="text-secondary">Website: {{ user.profile.social_website }}</p>
+                <p class="text-secondary">Website:
+                    <a class="social-link" href="{{ user.profile.social_website }}" target="_blank" rel="noreferrer"
+                        rel="noopener" aria-label="User Social Website"><i class="fa-solid fa-globe"></i></a>
+                </p>
                 {% else %}
                 <p class="text-secondary">Website: Nothing to see here</p>
                 {% endif %}
