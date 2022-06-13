@@ -67,7 +67,7 @@ class PostDetail(View):
             comment = comment_form.save(commit=False)
             comment.post = post
             comment.save()
-            messages.success(request, 'Comment submitted for review')
+            messages.success(request, 'Comment posted!')
         else:
             comment_form = CommentForm()
 
