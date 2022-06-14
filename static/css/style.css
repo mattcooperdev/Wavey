@@ -17,13 +17,13 @@
 }
 
 body {
-    font-family: Quicksand, sans-serif;
+    font-family: 'Quicksand', sans-serif;
     background-color: var(--body);
     min-height: 100vh;
 }
 
 p {
-    font-family: Spline Sans Mono, sans-serif;
+    font-family: 'Spline Sans Mono', sans-serif;
 }
 
 a {
@@ -38,7 +38,7 @@ a:hover {
 /* Message popup */
 
 #msg {
-    font-family: Spline Sans Mono, sans-serif;
+    font-family: 'Spline Sans Mono', sans-serif;
     background-color: var(--green);
     color: var(--white);
 }
@@ -46,7 +46,7 @@ a:hover {
 /* NavBar */
 
 .nav-item{
-    font-family: Spline Sans Mono, sans-serif;
+    font-family: 'Spline Sans Mono', sans-serif;
     font-size: 20px;
 }
 
