@@ -213,7 +213,7 @@ a:hover {
     min-width: 30%;
     left: -2px;
     border-radius: 2%;
-    background-color: var(--green);
+    background-color: var(--dark);
 }
 
 .edit-flash {
