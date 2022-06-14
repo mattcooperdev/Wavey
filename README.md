@@ -119,6 +119,8 @@ Arising from user stories
 
 Wireframes were produced for each major page for desktop, mobile and tablet devices. As the site will be fully responsive, no matter the device size the user is viewing the site on, it will display accordingly.
 
+<details>
+<summary>Click for images</summary>
 
 ![Home Page Wireframe](assets/wireframes/homepage.png)
 
@@ -127,21 +129,32 @@ Wireframes were produced for each major page for desktop, mobile and tablet devi
 
 
 ![User Profile Desktop Wireframe](assets/wireframes/profile.png)
+    
+</details>
 
 
 #### Database Schema
 
 Custom Profile, Post and Comment models were built on top of the default Django User model, utilising Django's AllAuth to look after the user authentication. As AllAuth works with the generic User model, the Profile model was created to look after some custom fields that were not accounted for. I used [LucidChart](https://lucid.app/) to draw out the schema, listing all the relevant types to each requirement. As the schema was relatively simple, the use of foreign keys only became necessary with the author and post fields in the Post and Comment models respectively. 
 
+<details>
+<summary>Click to expand</summary>
+
 ![Database Schema Diagram](assets/images/db-schema.png)
 
+</details>
 ### The Surface Plane
 
 #### Design
 
 Once happy with the initial layout of the site, I focussed on it's design, looking for something clean and concise that put focus on the learning material that would be provided. The logo was created in [Canva](https://canva.com) and this led me towards the colour palette I decided upon:
 
+<details>
+<summary>Expand</summary>
+
 ![Palette](assets/images/palette.png)
+
+</details>
 
 The palette was then ran through the contrast checker and only those combinations that passed at AA or AAA were utilised on the site:
 

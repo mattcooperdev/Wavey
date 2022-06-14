@@ -1,7 +1,7 @@
 # Manuel Testing
 * [Manuel Testing](#manuel-testing)
   * [Bugs and Fixes During the Development Process](#bugs-and-fixes-during-the-development-process)
-* [Wave Aim Accessibility checker:](#wave-aim-accessibility-checker)
+* [Wave Aim Accessibility checker](#wave-aim-accessibility-checker)
 * [Lighthouse](#lighthouse)
 * [Validators](#validators)
   * [HTML:](#html)
@@ -30,15 +30,24 @@
 
 # Wave Aim Accessibility checker:
 * After resolving low contrast issues and several missing alt tags, the WAVE report now comes back clear of all errors and contrast issues along all pages. 
+<details>
+<summary>Expand</summary>
+
 ![Wave Results](assets/images/wave-results.png)   
 
+</details>
 
 # Lighthouse
 The lighthouse test showed varying performance scores on each post-detail page due to the varying amounts of media used over each post. As this would be uploaded by the USer on a case-by-case basis, it would be hard to control in these development stages. For a future update I would use cloudinary to resize and compress uploaded images to improve load time. 
 
 In general Mobile scores were lower in performance for two main reasons, cdn imports from bootstrap, jquery, and the already compressed (multiple times hero images). As a future development, I would be firstly looking to reduce load time by replacing the few lines of jquery in my custom JS file with vanilla JS instead. and secondly I would change the hero image to be imported with CSS so the second hero image (default to display: none) didn't slow down the page load time.
 
-![Post Detail Lighthouse](assets/images/lighthouse.png)
+<details>
+<summary>Expand</summary>
+
+![Post Detail Lighthouse](assets/images/lighthouse.png)  
+
+</details>
 
 
 # Validators
@@ -74,8 +83,6 @@ Below is a summary of how I manually tested each user story.
 
 ## As an **Admin** I can...
 
-Here I have only tested the admin panel relating to the JOB_SEARCH app, as the other sections relate to imported libraries.
-
 | Checked | ...**use a text editor within the admin panel** so that **I can create a post** |
 |:-------:|:--------|
 | &check; | Can add a job post successfully from the admin panel using the summernote editor |
@@ -87,7 +94,7 @@ Here I have only tested the admin panel relating to the JOB_SEARCH app, as the o
 
 | Checked | ... **Filter and search all custom models from the admin page** so that **I can utilize the admin page to review, edit and delete data quickly.** |
 |:-------:|:--------|
-| **Jobs** |  |
+| **Posts** |  |
 | &check; | Can search post by title |
 | &check; | Can search post by author |
 | &check; | Can filter by a user to see which posts are liked|
@@ -143,22 +150,6 @@ Here I have only tested the admin panel relating to the JOB_SEARCH app, as the o
 | &check; | If updated the revised post is shown |
 | &check; | If deleted the post is removed from page and database |
 
-
-| Checked | ...**leave notes specific to the job on my pinboard** so that **I can keep track of specific milestones in the application process** |
-|:-------:|:--------|
-| &check; | When job pinned Notes form and accordion are visible |
-| &check; | No notes section from full spec page when job unpinned |
-| &check; | The notes section display can be toggled with the toggle switch |
-| &check; | When on smaller screen sizes, there is a button to direct the user to the notes section below the full spec |
-| &check; | Can successfully leave a note from the full job spec  |
-| &check; | Can mark Note as insight and background color of related accordion-item changes to yellow with an icon in the heading |
-| &check; | Can see each note/item heading in the accordion |
-| &check; | When expanding one section of the accordion, any previous one closes |
-| &check; | Notes/insights can only be seen by the user who left them |
-| &check; | Notes/insights left are reflected in the database |
-| &check; | If a user is not logged in and tries to use the URL to access the edit note form, they see a custom error page |
-
-
 | Checked |  ...**See balanced forms with an included text editor where necessary** so that **I can have a pleasant visual experience across the site, and my posts look how i envisaged.** |
 |:-------:|:--------|
 | &check; | Post form formatted and includes TinyMCE widget for text area entry |
@@ -186,10 +177,9 @@ Here I have only tested the admin panel relating to the JOB_SEARCH app, as the o
 | &check; | Footer is responsive from 320px up |
 | &check; | Edit form is responsive from 320px up |
 | &check; | Sign out page is responsive from 320px up |
-| &check; | Sign up page is responsive from 320px up |
 | &check; | 404 page is responsive from 320px up |
 | &check; | 500 page is responsive from 320px up |
-| &check; | Pagination bar is responsive from 320px up |
+| &check; | Pagination is responsive from 320px up |
 
 | Checked | ...**type a URL into the web browser** so that **I can access the site's various pages** |
 |:-------:|:--------|
@@ -204,7 +194,7 @@ Here I have only tested the admin panel relating to the JOB_SEARCH app, as the o
 | &check; | Styling of all pages follow a theme |
 
 
-## As a **Site User** I can...
+## As a **Registered User** I can...
 | Checked | ...**see appropriate responses upon specific interactions with the site** so that **I know my edit, deletion, submission has been successful.**|
 |:-------:|:--------|
 | &check; | When creating a post the success message shows on screen|
