@@ -87,6 +87,7 @@ These are the user stories that were completed within the projects first release
 ### The Scope Plane
 
 **Features planned:**
+
 * User Profile - Create, Read, Update and Delete
 * Posts - Users can create, read, update and delete their own posts
 * Other Users posts - Users can read, like, and comment on other Users' posts
@@ -111,7 +112,7 @@ Arising from user stories
 | ** Provide users the ability to edit their account ** | 5 | 5 |
 | ** Provide users the ability to view other accounts ** | 5 | 5 |
 | ** Provide users the ability to delete their account ** | 5 | 5 |
-| ** Provide users the ability to save a post ** | 3 | 5 |
+| ** Provide users the ability to like a post ** | 3 | 5 |
 | ** Provide users the ability to access the site on any device ** | 5 | 5 |
 
 ### The Skeleton Plane
@@ -163,7 +164,7 @@ The palette was then ran through the contrast checker and only those combination
 
 ##### Typography 
 
-Quicksand (Headers), Spline Sans Mono (body text) and sans serif (backup) were used for the fonts. 
+Google Fonts' Quicksand (Headers), Spline Sans Mono (body text) and sans serif (backup) were used for the fonts. 
 
 ## Features
 
@@ -174,7 +175,7 @@ The main navigation bar appears at the top of the page, clearly displaying the m
 
 ![Logged in User Nav Bar](assets/screenshots/header.png)
 
-A secondary user menu is available to users who are logged into the site, users who are not logged in receive a login/register link in its place
+A user menu is available to users who are logged into the site, users who are not logged in receive a login/register link in its place
 
 ![logged in user nave bar user menu open](assets/screenshots/navbar-login.png)
 
@@ -224,14 +225,14 @@ Only the users that create the post can edit it or delete it. If the authorised 
 
 There are several items of functionality I would like to add to the Site, which will be implemented at a later date. These include the remaining Epic on the Kanban board of giving the User the ability to search for posts, either by keyword or by tag. I would also like to add messaging fucntionality between User profiles, and the ability to like and reply to comments directly on the post detail page.
 
-I would also like to enable a feature for site performance that the page doesn't reload when a like or comment is made on a post, taking the User back to the top of the page. After researching online HTMX seems to resovle this issue but it was too late in development to implement for deadline.
+I would also like to enable a feature for site performance that the page doesn't reload when a like or comment is made on a post, taking the User back to the top of the page. After researching this, HTMX seems to resovle this issue but it was too late in development to implement for deadline.
 
 ## Testing
 
 ### Testing Strategy
 
 A full detailed breakdown of the testing procedures and methodology can be found in the testing.md file [here](TESTING.md).
-Seperate to the functionality testing of the site, and the testing of the code, User Story tests were implemented to ensure that the acceptance criteria of the user stories listed above were met. 
+Seperate to the functionality testing of the site, and the testing of the code, User Stories were used to see if the acceptance criteria was met.
 
 #### Testing Overview
 
@@ -250,7 +251,7 @@ However, this link takes you back to the users/register URL. I tried to remove t
  
 Looking at the Django documentation, I couldn't see a way of updating the link from auth.contrib.forms path so have left it to work on at a later date. 
 
-Other than this, I belive all other bugs to be out of this site; the major issues I came across are logged in the testing file [here](TESTING.md)
+Other than this, I believe all other bugs to be out of this site; the major issues I came across are logged in the testing file [here](TESTING.md)
 
 #### Technologies Used
 
@@ -313,6 +314,7 @@ Other than this, I belive all other bugs to be out of this site; the major issue
 * TinyMCE documentation when referring to the JavaScript scripting needed to use the widget without creating a custom form
 * The Code Institute material, namely the 'I Think Therefore I Blog' module was utilised throughout the build
 * [Codemy's YouTube playlist](https://youtu.be/B40bteAMM_M) on Django blog creation 
+* [MusicRadar](https://www.musicradar.com/) and [AttackMag](https://www.attackmagazine.com/) for their kindness in using their amazing resources 
 
 
 ## Deployment
