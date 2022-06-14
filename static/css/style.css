@@ -135,7 +135,7 @@ a:hover {
     bottom: 10%;
     left: 10%;
     position: absolute;
-    background-color: transparent;
+    background-color: var(--dark);
     color: var(--white)
 }
 
@@ -221,7 +221,7 @@ a:hover {
     bottom: 5%;
     min-width: 30%;
     right: -2px;
-    background-color: var(--green);
+    background-color: var(--dark);
 }
 
 .author {
