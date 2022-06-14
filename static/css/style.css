@@ -275,9 +275,13 @@ a:hover {
     color: var(--green);
 }
 
-.post-link:hover,
-.page-link {
+.post-link:hover {
     color: var(--orange);
+}
+
+.page-link {
+    text-decoration: none;
+    color: var(--dark)
 }
 
 .post-title {
