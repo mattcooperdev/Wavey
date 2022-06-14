@@ -6,9 +6,9 @@ Wavey Blog is a website built in Django using Python, JavaScript, CSS and HTML. 
 
 The site provides role based permissions for users to interact with a central dataset. It includes user authentication, email validation, and Full CRUD functionality for Posts and User Profiles.
 
-![Screenshot of homepage]()
+![Wavey Logo](assets/screenshots/wavey-logo.png)
 
-[View the live website on Heroku]()
+[View the live website on Heroku](https://wavey-django.herokuapp.com/)
 
 Please note: To open any links in this document in a new browser tab, please press CTRL + Click.
 
@@ -147,6 +147,7 @@ The palette was then ran through the contrast checker and only those combination
 
 ![Contrast Grid](assets/images/contrast-grid.png)
 
+
 ##### Typography 
 
 Quicksand (Headers), Spline Sans Mono (body text) and sans serif (backup) were used for the fonts. 
@@ -208,38 +209,35 @@ Only the users that create the post can edit it or delete it. If the authorised 
 
 ## Future Enhancements
 
-There are several items of functionality I would like to add to the Site, which will be implemented at a later date. These include the remaining Epic on the Kanban board of giving the User the ability to search for posts, either by keyword or by tag. I would also like to add messaging fucntionality between User profiles, and the ability to like and reply to comments directly on the post detail page. 
+There are several items of functionality I would like to add to the Site, which will be implemented at a later date. These include the remaining Epic on the Kanban board of giving the User the ability to search for posts, either by keyword or by tag. I would also like to add messaging fucntionality between User profiles, and the ability to like and reply to comments directly on the post detail page.
+
+I would also like to enable a feature for site performance that the page doesn't reload when a like or comment is made on a post, taking the User back to the top of the page. After researching online HTMX seems to resovle this issue but it was too late in development to implement for deadline.
 
 ## Testing
 
 ### Testing Strategy
-A full detailed breakdown of the testing procedures and methodology can be found in the testing.md file [here]().
+
+A full detailed breakdown of the testing procedures and methodology can be found in the testing.md file [here](TESTING.md).
 Seperate to the functionality testing of the site, and the testing of the code, User Story tests were implemented to ensure that the acceptance criteria of the user stories listed above were met. 
 
 #### Testing Overview
 
 Testing was divided into different sections to ensure everything was tested individually with test cases developed for each area.
 
-A full detailed breakdown of the testing procedures and methodology can be found in the testing.md file [here]()
+A full detailed breakdown of the testing procedures and methodology can be found in the testing.md file [here](TESTING.md)
 
 #### Validator Testing
 
+All Valdiator checks passed on all custom code, excluding some frameworks. Detailed information can be found [here](TESTING.md)
 
 #### Development bugs
 
-ISSUE - Register form was returning ValuError as didn't return HttpResponse object when invalid data was input to create a User. 
-FIX - In register function the render return was incorrectly indented when the if statement wasn't met. Amending this resolved the issue and user validation was restored.
-
-ISSUE - When submitting a new post an integrity error for a duplicate primary key was being shown. The duplicate being created was an empty string, causing an error for the super().save() method when calling the form_valid function. 
-FIX - Creating a save function in the Post model which looked at the newly-created slug, stripping any empty space and replacing with a hyphen, then calling the super().save() resolved the issue.
-
-ISSUE - When TinyMCE widget was installed in the Create Post view, when you tried to submit a post with all required fields filled the submit request was not working. 
-FIX - Setting the content CharField in the Post model to blank="null" resolved the issue. 
-
-ISSUE - Featured image field was not uploading related media to cloudinary when creating a Post, thus not replacing the masthead placeholder image as desired. 
-FIX - Adding the necessary enctype="multipart/form-data" to the relevant forms sent images to cloudinary and therefore to the related post.
-
+One noticable bug that came to light during deployment was on the Register page. In the default UserCreationForm, there is a link at the bottom to take the User back to the {% url 'account_login %}. 
+However, this link takes you back to the users/register URL. I tried to remove the link from the form, place it outside of the form, and use a different URL but to no avail - the URL in other parts of the site, most notable the Navbar, works as expected. 
  
+Looking at the Django documentation, I couldn't see a way of updating the link from auth.contrib.forms path so have left it to work on at a later date. 
+
+Other than this, I belive all other bugs to be out of this site; the major issues I came across are logged in the testing file [here](TESTING.md)
 
 #### Technologies Used
 
@@ -276,6 +274,8 @@ FIX - Adding the necessary enctype="multipart/form-data" to the relevant forms s
     * Bootstrap was used for general layout and spacing requirements for the site.
 * Font Awesome
     * Was used for access to several icons for different sections where icons were appropriate.
+* Cloudinary
+    * Used for the media storage of profile and post images. 
 * CSS
     * Custom css was written for areas on the site to implement custom styling.
 * Jinja/Django Templating
@@ -304,7 +304,7 @@ FIX - Adding the necessary enctype="multipart/form-data" to the relevant forms s
 
 ## Deployment
 
-The site was deployed via Heroku, and the live link can be found here - [Wavey]()
+The site was deployed via Heroku, and the live link can be found here - [Wavey](https://wavey-django.herokuapp.com/)
 
 ### Project Deployment
 
