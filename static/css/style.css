@@ -122,7 +122,6 @@ a:hover {
 }
 
 .carousel-image {
-    position: center;
     object-fit: cover;
 }
 
@@ -228,10 +227,6 @@ a:hover {
     color: var(--white);
     margin: 4px;
     text-transform: uppercase;
-}
-
-.thin {
-    font-weight: 300;
 }
 
 /* Post Detail */
