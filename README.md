@@ -8,7 +8,7 @@ The site provides role based permissions for users to interact with a central da
 
 ![Wavey Logo](assets/screenshots/wavey-logo.png)
 
-[View the live website on Heroku](https://wavey-django.herokuapp.com/)
+[View the live website](https://wavey.onrender.com)
 
 Please note: To open any links in this document in a new browser tab, please press CTRL + Click.
 
